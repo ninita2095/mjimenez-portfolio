@@ -283,8 +283,10 @@ footer {
   <div class="about-grid">
     <div class="about-img-wrap">
       <div class="about-img-placeholder">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        <span>Marcelo Jiménez R.</span>
+        <div style="width:90px;height:90px;border-radius:50%;background:#1D9E75;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:2.2rem;color:white;margin-bottom:16px;flex-shrink:0;">MJ</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#0a0a0a;">Marcelo Jiménez R.</div>
+        <div style="font-size:12px;color:#6b6b6b;margin-top:6px;">Software Engineer · AI/ML Student</div>
+        <a href="https://linkedin.com/in/marcelojimenezr" target="_blank" style="font-size:12px;color:#1D9E75;margin-top:10px;text-decoration:none;font-weight:500;">View LinkedIn Profile ↗</a>
       </div>
       <div class="about-badge">
         <div class="about-badge-num">2</div>
@@ -356,10 +358,14 @@ footer {
     <div class="artifact-card">
       <div class="artifact-preview">
         <span class="artifact-num">Artifact 01</span>
-        <img class="artifact-preview-img" src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&q=80" alt="RecycleBot SF" style="opacity:0.6;" />
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
-          <div style="font-size:2.5rem;">♻️</div>
-          <div style="font-size:13px;font-weight:500;color:#333;">RecycleBot SF</div>
+
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;background:linear-gradient(135deg,#0a0a0a,#1a1a1a);">
+          <div style="display:flex;gap:10px;align-items:flex-end;">
+            <div style="width:28px;height:44px;border-radius:4px 4px 6px 6px;background:#1D9E75;display:flex;align-items:center;justify-content:center;font-size:14px;">🌿</div>
+            <div style="width:28px;height:52px;border-radius:4px 4px 6px 6px;background:#0ea5e9;display:flex;align-items:center;justify-content:center;font-size:14px;">♻️</div>
+            <div style="width:28px;height:40px;border-radius:4px 4px 6px 6px;background:#374151;display:flex;align-items:center;justify-content:center;font-size:14px;">🗑️</div>
+          </div>
+          <div style="font-size:13px;font-weight:500;color:white;letter-spacing:0.04em;">RecycleBot SF</div>
         </div>
       </div>
       <div class="artifact-body">
@@ -379,10 +385,13 @@ footer {
     <div class="artifact-card">
       <div class="artifact-preview">
         <span class="artifact-num">Artifact 02</span>
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,#e8f5f0,#f0faf6);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;">
-          <div style="font-size:2rem;font-weight:500;font-family:'DM Serif Display',serif;color:#0a0a0a;">Clean, Clear</div>
-          <div style="font-size:1.5rem;color:#1D9E75;font-family:'DM Serif Display',serif;">& Safe</div>
-          <div style="font-size:11px;color:#6b6b6b;letter-spacing:0.06em;text-transform:uppercase;">Personal Shopper</div>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="Healthy products" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.25;" />
+          <div style="position:relative;z-index:1;text-align:center;">
+            <div style="font-size:1.8rem;font-weight:500;font-family:'DM Serif Display',serif;color:#0a0a0a;">Clean, Clear</div>
+            <div style="font-size:1.4rem;color:#1D9E75;font-family:'DM Serif Display',serif;font-style:italic;">& Safe</div>
+            <div style="font-size:10px;color:#6b6b6b;letter-spacing:0.08em;text-transform:uppercase;margin-top:6px;">AI Personal Shopper · Amazon</div>
+          </div>
         </div>
       </div>
       <div class="artifact-body">
@@ -412,7 +421,7 @@ footer {
     <div class="reflection-card featured">
       <div class="reflection-icon">💡</div>
       <div class="reflection-title">Audience Customization</div>
-      <div class="reflection-text">Both artifacts were designed specifically for investors and stakeholders in MCP Server software — not general audiences. RecycleBot SF demonstrates how AI can power public-facing services with domain-specific knowledge. Clean, Clear & Safe demonstrates real-time AI + API orchestration, which is precisely the value proposition of MCP infrastructure: connecting AI reasoning to live external data. The technical depth (compound toxicity scoring, live Amazon data) was intentional — this audience evaluates technical credibility, not just polish.</div>
+      <div class="reflection-text">Both artifacts were designed for an academic audience — specifically, instructors and peers in a graduate AI/ML program. RecycleBot SF demonstrates applied conversational AI with domain-specific knowledge, targeting a real public need. Clean, Clear & Safe demonstrates technical depth through compound toxicity scoring and live API integration. The design choices — professional UI, technical vocabulary, real data — reflect the academic standard of rigor expected at the graduate level while remaining accessible to non-technical reviewers.</div>
     </div>
 
     <div class="reflection-card">
