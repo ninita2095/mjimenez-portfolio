@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Marcelo Jiménez R. — AI/ML Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0a0a0a;
+  --white: #fafaf8;
+  --green: #1D9E75;
+  --green-light: #e8f5f0;
+  --gray: #6b6b6b;
+  --gray-light: #f0f0ed;
+  --border: #e4e4e0;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--black);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.25rem 3rem;
+  background: rgba(250,250,248,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid var(--border);
+}
+.nav-logo { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--black); text-decoration: none; }
+.nav-links { display: flex; gap: 2.5rem; }
+.nav-links a { font-size: 13px; color: var(--gray); text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--black); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8rem 3rem 4rem;
+  max-width: 1100px; margin: 0 auto;
+  position: relative;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 500; color: var(--green);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--green-light); padding: 6px 14px; border-radius: 20px;
+  margin-bottom: 2rem;
+  opacity: 0; animation: fadeUp 0.6s 0.1s forwards;
+}
+.hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  opacity: 0; animation: fadeUp 0.6s 0.2s forwards;
+}
+.hero h1 em { font-style: italic; color: var(--green); }
+
+.hero-sub {
+  font-size: 1.1rem; color: var(--gray); max-width: 560px;
+  font-weight: 300; line-height: 1.7;
+  margin-bottom: 2.5rem;
+  opacity: 0; animation: fadeUp 0.6s 0.3s forwards;
+}
+
+.hero-actions {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp 0.6s 0.4s forwards;
+}
+.btn-primary {
+  padding: 12px 28px; border-radius: 8px;
+  background: var(--black); color: var(--white);
+  font-size: 14px; font-weight: 500; text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-primary:hover { background: #222; transform: translateY(-1px); }
+.btn-outline {
+  padding: 12px 28px; border-radius: 8px;
+  border: 1px solid var(--border); color: var(--black);
+  font-size: 14px; font-weight: 500; text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.btn-outline:hover { border-color: var(--black); transform: translateY(-1px); }
+
+.hero-scroll {
+  position: absolute; bottom: 3rem; left: 3rem;
+  display: flex; align-items: center; gap: 10px;
+  font-size: 11px; color: var(--gray); letter-spacing: 0.06em; text-transform: uppercase;
+  opacity: 0; animation: fadeUp 0.6s 0.8s forwards;
+}
+.scroll-line { width: 40px; height: 0.5px; background: var(--border); }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+/* SECTIONS */
+section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
+
+.section-label {
+  font-size: 11px; font-weight: 600; color: var(--green);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15; letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+}
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.about-img-wrap {
+  position: relative;
+}
+.about-img {
+  width: 100%; aspect-ratio: 3/4;
+  border-radius: 16px; object-fit: cover;
+  background: var(--gray-light);
+}
+.about-img-placeholder {
+  width: 100%; aspect-ratio: 3/4;
+  border-radius: 16px; background: var(--gray-light);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 12px; color: var(--gray); font-size: 13px;
+}
+.about-img-placeholder svg { opacity: 0.3; }
+.about-badge {
+  position: absolute; bottom: -1.5rem; right: -1.5rem;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1rem 1.25rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+.about-badge-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--green); }
+.about-badge-text { font-size: 11px; color: var(--gray); }
+.about-text p { font-size: 1rem; color: var(--gray); line-height: 1.8; margin-bottom: 1.25rem; font-weight: 300; }
+.about-text p strong { color: var(--black); font-weight: 500; }
+
+/* SKILLS */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.skill-card {
+  padding: 1.25rem; border: 0.5px solid var(--border); border-radius: 12px;
+  background: var(--white); transition: border-color 0.2s, transform 0.2s;
+}
+.skill-card:hover { border-color: var(--green); transform: translateY(-2px); }
+.skill-icon { font-size: 1.5rem; margin-bottom: 8px; }
+.skill-name { font-size: 13px; font-weight: 500; color: var(--black); margin-bottom: 4px; }
+.skill-desc { font-size: 11px; color: var(--gray); line-height: 1.5; }
+
+/* ARTIFACTS */
+.artifacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+.artifact-card {
+  border: 0.5px solid var(--border); border-radius: 16px;
+  overflow: hidden; transition: border-color 0.2s, transform 0.2s;
+  background: var(--white);
+}
+.artifact-card:hover { border-color: var(--green); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+.artifact-preview {
+  height: 200px; background: var(--gray-light);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 0.5px solid var(--border); overflow: hidden;
+  position: relative;
+}
+.artifact-preview iframe {
+  width: 100%; height: 100%; border: none; pointer-events: none;
+  transform: scale(0.6); transform-origin: top center;
+  position: absolute; top: 0; left: 0; width: 167%; height: 167%;
+}
+.artifact-preview-img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.artifact-num {
+  position: absolute; top: 1rem; left: 1rem;
+  font-size: 11px; font-weight: 600; color: var(--green);
+  background: var(--green-light); padding: 4px 10px; border-radius: 20px;
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.artifact-body { padding: 1.5rem; }
+.artifact-title { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin-bottom: 8px; }
+.artifact-desc { font-size: 13px; color: var(--gray); line-height: 1.6; margin-bottom: 1.25rem; font-weight: 300; }
+.artifact-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
+.tag {
+  font-size: 11px; padding: 4px 10px; border-radius: 20px;
+  background: var(--gray-light); color: var(--gray); font-weight: 500;
+}
+.artifact-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 500; color: var(--green); text-decoration: none;
+  transition: gap 0.2s;
+}
+.artifact-link:hover { gap: 10px; }
+
+/* REFLECTION */
+.reflection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+.reflection-card {
+  padding: 2rem; border: 0.5px solid var(--border); border-radius: 16px;
+  background: var(--white);
+}
+.reflection-card.featured { background: var(--black); color: var(--white); border-color: var(--black); grid-column: span 2; }
+.reflection-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+.reflection-title { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+.reflection-card.featured .reflection-title { color: var(--white); }
+.reflection-text { font-size: 13px; color: var(--gray); line-height: 1.7; font-weight: 300; }
+.reflection-card.featured .reflection-text { color: #aaa; }
+
+/* FOOTER */
+footer {
+  border-top: 0.5px solid var(--border);
+  padding: 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1100px; margin: 0 auto;
+}
+.footer-name { font-family: 'DM Serif Display', serif; font-size: 1.1rem; }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 13px; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--black); }
+.footer-copy { font-size: 12px; color: var(--gray); }
+
+/* DIVIDER */
+.full-divider { height: 0.5px; background: var(--border); max-width: 1100px; margin: 0 auto; }
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1.5rem; }
+  .hero, section { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .about-grid, .artifacts-grid, .reflection-grid { grid-template-columns: 1fr; }
+  .reflection-card.featured { grid-column: span 1; }
+  .about-badge { bottom: 1rem; right: 1rem; }
+  footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">MJR</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#artifacts">Portfolio</a>
+    <a href="#reflection">Reflection</a>
+    <a href="https://linkedin.com/in/marcelojimenezr" target="_blank">LinkedIn ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">
+    <span class="hero-dot"></span>
+    AI/ML Professional Portfolio — AIML-500
+  </div>
+  <h1>Building the <em>intelligent</em><br>infrastructure of tomorrow</h1>
+  <p class="hero-sub">Software Engineer at MCP Server Solutions. Master's candidate in Machine Learning Fundamentals at Indiana Wesleyan University. Designing AI systems that connect, reason, and act.</p>
+  <div class="hero-actions">
+    <a href="#artifacts" class="btn-primary">View Portfolio →</a>
+    <a href="https://linkedin.com/in/marcelojimenezr" target="_blank" class="btn-outline">LinkedIn Profile</a>
+  </div>
+  <div class="hero-scroll">
+    <span class="scroll-line"></span>
+    Scroll to explore
+  </div>
+</div>
+
+<div class="full-divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap">
+      <div class="about-img-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <span>Marcelo Jiménez R.</span>
+      </div>
+      <div class="about-badge">
+        <div class="about-badge-num">2</div>
+        <div class="about-badge-text">AI Artifacts<br>Deployed</div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="section-label">About Me</div>
+      <h2 class="section-title">Engineer. Builder.<br>AI Practitioner.</h2>
+      <p>I'm <strong>Marcelo Jiménez R.</strong>, a Software Engineer at <strong>MCP Server Solutions</strong> — a startup building the infrastructure layer that connects AI agents to real-world tools and data sources through the Model Context Protocol.</p>
+      <p>Currently pursuing a Master's in <strong>Machine Learning Fundamentals</strong> at Indiana Wesleyan University, I apply AI/ML concepts directly to production systems — from intelligent chatbots to real-time product intelligence tools powered by live data APIs.</p>
+      <p>This portfolio showcases two applied AI artifacts developed during the course — each demonstrating a distinct capability: <strong>conversational AI</strong> and <strong>real-time data intelligence</strong>.</p>
+      <a href="https://linkedin.com/in/marcelojimenezr" target="_blank" class="btn-outline" style="display:inline-flex;margin-top:1rem;">View LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Competencies</div>
+  <h2 class="section-title">Skills & Technologies</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">🔗</div>
+      <div class="skill-name">Model Context Protocol</div>
+      <div class="skill-desc">Designing and deploying MCP servers that connect AI agents to external tools and data sources</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <div class="skill-name">Large Language Models</div>
+      <div class="skill-desc">Claude API, prompt engineering, structured outputs, multi-turn conversations</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">⚡</div>
+      <div class="skill-name">Serverless Architecture</div>
+      <div class="skill-desc">Vercel Functions, Node.js backends, REST API design and integration</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📊</div>
+      <div class="skill-name">ML Fundamentals</div>
+      <div class="skill-desc">Supervised/unsupervised learning, model evaluation, feature engineering</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🔍</div>
+      <div class="skill-name">Real-time Data APIs</div>
+      <div class="skill-desc">Live product data, web scraping APIs, structured data extraction at scale</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🎨</div>
+      <div class="skill-name">AI Product Design</div>
+      <div class="skill-desc">End-to-end AI product development from concept to deployed, user-facing applications</div>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- ARTIFACTS -->
+<section id="artifacts">
+  <div class="section-label">Course Work</div>
+  <h2 class="section-title">Portfolio Artifacts</h2>
+  <p style="color:var(--gray);font-size:1rem;font-weight:300;max-width:560px;margin-bottom:2rem;">Two applied AI projects demonstrating distinct competencies — from conversational AI to real-time product intelligence.</p>
+
+  <div class="artifacts-grid">
+
+    <!-- Artifact 1 -->
+    <div class="artifact-card">
+      <div class="artifact-preview">
+        <span class="artifact-num">Artifact 01</span>
+        <img class="artifact-preview-img" src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&q=80" alt="RecycleBot SF" style="opacity:0.6;" />
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+          <div style="font-size:2.5rem;">♻️</div>
+          <div style="font-size:13px;font-weight:500;color:#333;">RecycleBot SF</div>
+        </div>
+      </div>
+      <div class="artifact-body">
+        <div class="artifact-title">RecycleBot SF</div>
+        <div class="artifact-desc">An AI-powered conversational assistant that helps San Francisco residents make correct recycling decisions. Built with Chatbase and trained on SFPUC recycling guidelines.</div>
+        <div class="artifact-tags">
+          <span class="tag">Conversational AI</span>
+          <span class="tag">Chatbase</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Public Service</span>
+        </div>
+        <a href="https://www.chatbase.co/chatbot-iframe/EnSgRRuPsZZ4VaUQlPGrj" target="_blank" class="artifact-link">Try RecycleBot SF →</a>
+      </div>
+    </div>
+
+    <!-- Artifact 2 -->
+    <div class="artifact-card">
+      <div class="artifact-preview">
+        <span class="artifact-num">Artifact 02</span>
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,#e8f5f0,#f0faf6);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;">
+          <div style="font-size:2rem;font-weight:500;font-family:'DM Serif Display',serif;color:#0a0a0a;">Clean, Clear</div>
+          <div style="font-size:1.5rem;color:#1D9E75;font-family:'DM Serif Display',serif;">& Safe</div>
+          <div style="font-size:11px;color:#6b6b6b;letter-spacing:0.06em;text-transform:uppercase;">Personal Shopper</div>
+        </div>
+      </div>
+      <div class="artifact-body">
+        <div class="artifact-title">Clean, Clear & Safe</div>
+        <div class="artifact-desc">AI-powered product analyzer that identifies toxic compounds in consumer products and recommends 6 cleaner alternatives with real-time Amazon pricing and availability.</div>
+        <div class="artifact-tags">
+          <span class="tag">Claude API</span>
+          <span class="tag">Amazon Data API</span>
+          <span class="tag">Vercel</span>
+          <span class="tag">Real-time Data</span>
+        </div>
+        <a href="https://ccs-personal-shopper.vercel.app" target="_blank" class="artifact-link">Try Personal Shopper →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- REFLECTION -->
+<section id="reflection">
+  <div class="section-label">Academic Reflection</div>
+  <h2 class="section-title">What I Learned</h2>
+
+  <div class="reflection-grid">
+    <div class="reflection-card featured">
+      <div class="reflection-icon">💡</div>
+      <div class="reflection-title">Audience Customization</div>
+      <div class="reflection-text">Both artifacts were designed specifically for investors and stakeholders in MCP Server software — not general audiences. RecycleBot SF demonstrates how AI can power public-facing services with domain-specific knowledge. Clean, Clear & Safe demonstrates real-time AI + API orchestration, which is precisely the value proposition of MCP infrastructure: connecting AI reasoning to live external data. The technical depth (compound toxicity scoring, live Amazon data) was intentional — this audience evaluates technical credibility, not just polish.</div>
+    </div>
+
+    <div class="reflection-card">
+      <div class="reflection-icon">🔧</div>
+      <div class="reflection-title">Technical Lessons</div>
+      <div class="reflection-text">Deploying AI applications to production revealed the gap between prototype and production: API authentication, environment variables, CORS, serverless function timeouts, and JSON parsing edge cases all required careful handling. Each failure was a precise diagnostic exercise in systems thinking.</div>
+    </div>
+
+    <div class="reflection-card">
+      <div class="reflection-icon">🔄</div>
+      <div class="reflection-title">Iteration Process</div>
+      <div class="reflection-text">The CCS Personal Shopper went through 9+ design iterations — from static mockups to a fully deployed, API-connected application. Each round of feedback sharpened both the UX (compound accordion, card chevrons) and the backend architecture (model selection, data structure alignment).</div>
+    </div>
+
+    <div class="reflection-card">
+      <div class="reflection-icon">🎯</div>
+      <div class="reflection-title">AI/ML Application</div>
+      <div class="reflection-text">This course deepened my understanding of how foundational ML concepts — classification, scoring systems, structured inference — apply directly to production AI products. The CCS scoring algorithm is essentially a domain-specific classification model implemented via LLM prompting.</div>
+    </div>
+
+    <div class="reflection-card">
+      <div class="reflection-icon">📈</div>
+      <div class="reflection-title">Value Proposition</div>
+      <div class="reflection-text">Both artifacts demonstrate a core MCP principle: AI is most powerful when connected to real, live data. A chatbot with static knowledge is useful. A chatbot that queries live APIs, scores results, and returns actionable recommendations is transformative.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="full-divider"></div>
+<footer>
+  <div class="footer-name">Marcelo Jiménez R.</div>
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/marcelojimenezr" target="_blank">LinkedIn</a>
+    <a href="https://ccs-personal-shopper.vercel.app" target="_blank">CCS Shopper</a>
+    <a href="https://www.chatbase.co/chatbot-iframe/EnSgRRuPsZZ4VaUQlPGrj" target="_blank">RecycleBot</a>
+  </div>
+  <div class="footer-copy">AIML-500 · Indiana Wesleyan University · 2026</div>
+</footer>
+
+</body>
+</html>
