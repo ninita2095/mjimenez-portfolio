@@ -1,112 +1,292 @@
-MJR
-About
-Skills
-Portfolio
-Reflection
-LinkedIn ↗
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Marcelo Jiménez R. — AI/ML Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0a0a0a;
+  --white: #fafaf8;
+  --green: #1D9E75;
+  --green-light: #e8f5f0;
+  --gray: #6b6b6b;
+  --gray-light: #f0f0ed;
+  --border: #e4e4e0;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--black); line-height: 1.6; overflow-x: hidden; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; background: rgba(250,250,248,0.92); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--border); }
+.nav-logo { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--black); text-decoration: none; }
+.nav-links { display: flex; gap: 2.5rem; }
+.nav-links a { font-size: 13px; color: var(--gray); text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--black); }
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 3rem 4rem; max-width: 1100px; margin: 0 auto; position: relative; }
+.hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; background: var(--green-light); padding: 6px 14px; border-radius: 20px; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.6s 0.1s forwards; }
+.hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(3rem, 7vw, 6rem); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s 0.2s forwards; }
+.hero h1 em { font-style: italic; color: var(--green); }
+.hero-sub { font-size: 1.1rem; color: var(--gray); max-width: 560px; font-weight: 300; line-height: 1.7; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.6s 0.3s forwards; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.6s 0.4s forwards; }
+.btn-primary { padding: 12px 28px; border-radius: 8px; background: var(--black); color: var(--white); font-size: 14px; font-weight: 500; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+.btn-primary:hover { background: #222; transform: translateY(-1px); }
+.btn-outline { padding: 12px 28px; border-radius: 8px; border: 1px solid var(--border); color: var(--black); font-size: 14px; font-weight: 500; text-decoration: none; transition: border-color 0.2s, transform 0.2s; }
+.btn-outline:hover { border-color: var(--black); transform: translateY(-1px); }
+.hero-scroll { position: absolute; bottom: 3rem; left: 3rem; display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--gray); letter-spacing: 0.06em; text-transform: uppercase; opacity: 0; animation: fadeUp 0.6s 0.8s forwards; }
+.scroll-line { width: 40px; height: 0.5px; background: var(--border); }
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
+.section-label { font-size: 11px; font-weight: 600; color: var(--green); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
+.section-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 1.5rem; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.about-img-wrap { position: relative; }
+.about-img { width: 100%; aspect-ratio: 3/4; border-radius: 16px; object-fit: cover; background: var(--gray-light); }
+.about-badge { position: absolute; bottom: -1.5rem; right: -1.5rem; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+.about-badge-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--green); }
+.about-badge-text { font-size: 11px; color: var(--gray); }
+.about-text p { font-size: 1rem; color: var(--gray); line-height: 1.8; margin-bottom: 1.25rem; font-weight: 300; }
+.about-text p strong { color: var(--black); font-weight: 500; }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.skill-card { padding: 1.25rem; border: 0.5px solid var(--border); border-radius: 12px; background: var(--white); transition: border-color 0.2s, transform 0.2s; }
+.skill-card:hover { border-color: var(--green); transform: translateY(-2px); }
+.skill-icon { font-size: 1.5rem; margin-bottom: 8px; }
+.skill-name { font-size: 13px; font-weight: 500; color: var(--black); margin-bottom: 4px; }
+.skill-desc { font-size: 11px; color: var(--gray); line-height: 1.5; }
+.artifacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+.artifact-card { border: 0.5px solid var(--border); border-radius: 16px; overflow: hidden; transition: border-color 0.2s, transform 0.2s; background: var(--white); }
+.artifact-card:hover { border-color: var(--green); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+.artifact-preview { height: 200px; background: var(--gray-light); display: flex; align-items: center; justify-content: center; border-bottom: 0.5px solid var(--border); overflow: hidden; position: relative; }
+.artifact-num { position: absolute; top: 1rem; left: 1rem; font-size: 11px; font-weight: 600; color: var(--green); background: var(--green-light); padding: 4px 10px; border-radius: 20px; letter-spacing: 0.06em; text-transform: uppercase; z-index: 2; }
+.artifact-body { padding: 1.5rem; }
+.artifact-title { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin-bottom: 8px; }
+.artifact-desc { font-size: 13px; color: var(--gray); line-height: 1.6; margin-bottom: 1.25rem; font-weight: 300; }
+.artifact-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
+.tag { font-size: 11px; padding: 4px 10px; border-radius: 20px; background: var(--gray-light); color: var(--gray); font-weight: 500; }
+.artifact-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--green); text-decoration: none; transition: gap 0.2s; }
+.artifact-link:hover { gap: 10px; }
+.reflection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+.reflection-card { padding: 2rem; border: 0.5px solid var(--border); border-radius: 16px; background: var(--white); }
+.reflection-card.featured { background: var(--black); color: var(--white); border-color: var(--black); grid-column: span 2; }
+.reflection-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+.reflection-title { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+.reflection-card.featured .reflection-title { color: var(--white); }
+.reflection-text { font-size: 13px; color: var(--gray); line-height: 1.7; font-weight: 300; }
+.reflection-card.featured .reflection-text { color: #aaa; }
+footer { border-top: 0.5px solid var(--border); padding: 3rem; display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; }
+.footer-name { font-family: 'DM Serif Display', serif; font-size: 1.1rem; }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 13px; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--black); }
+.footer-copy { font-size: 12px; color: var(--gray); }
+.full-divider { height: 0.5px; background: var(--border); max-width: 1100px; margin: 0 auto; }
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1.5rem; }
+  .hero, section { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .about-grid, .artifacts-grid, .reflection-grid { grid-template-columns: 1fr; }
+  .reflection-card.featured { grid-column: span 1; }
+  .about-badge { bottom: 1rem; right: 1rem; }
+  footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+}
+</style>
+</head>
+<body>
 
-AI/ML PROFESSIONAL PORTFOLIO — AIML-500
-Building the intelligent infrastructure of tomorrow
-Software Engineer at MCP Server Solutions. Master's candidate in Machine Learning Fundamentals at Indiana Wesleyan University. Designing AI systems that connect, reason, and act.
-View Portfolio →
-LinkedIn Profile
+<nav>
+  <a href="#" class="nav-logo">MJR</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#artifacts">Portfolio</a>
+    <a href="#reflection">Reflection</a>
+    <a href="https://linkedin.com/in/marcelojimenezr" target="_blank">LinkedIn ↗</a>
+  </div>
+</nav>
 
-SCROLL TO EXPLORE
+<div class="hero">
+  <div class="hero-tag"><span class="hero-dot"></span>AI/ML Professional Portfolio — AIML-500</div>
+  <h1>Building the <em>intelligent</em><br>infrastructure of tomorrow</h1>
+  <p class="hero-sub">Software Engineer at MCP Server Solutions. Master's candidate in Machine Learning Fundamentals at Indiana Wesleyan University. Designing AI systems that connect, reason, and act.</p>
+  <div class="hero-actions">
+    <a href="#artifacts" class="btn-primary">View Portfolio →</a>
+    <a href="https://linkedin.com/in/marcelojimenezr" target="_blank" class="btn-outline">LinkedIn Profile</a>
+  </div>
+  <div class="hero-scroll"><span class="scroll-line"></span>Scroll to explore</div>
+</div>
 
+<div class="full-divider"></div>
 
-3
-AI Artifacts
-Deployed
-ABOUT ME
-Engineer. Builder. AI Practitioner.
-I'm Marcelo Jiménez R., a Software Engineer at MCP Server Solutions — a startup building the infrastructure layer that connects AI agents to real-world tools and data sources through the Model Context Protocol.
-Currently pursuing a Master's in Machine Learning Fundamentals at Indiana Wesleyan University, I apply AI/ML concepts directly to production systems — from intelligent chatbots to real-time product intelligence tools powered by live data APIs.
-This portfolio showcases three applied AI artifacts developed during the course — each demonstrating a distinct capability: conversational AI, real-time data intelligence, and AI-powered leadership coaching.
-View LinkedIn ↗
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap">
+      <img src="foto.jpg" alt="Marcelo Jiménez R." class="about-img" style="width:100%;aspect-ratio:3/4;border-radius:16px;object-fit:cover;object-position:center top;" />
+      <div class="about-badge">
+        <div class="about-badge-num">3</div>
+        <div class="about-badge-text">AI Artifacts<br>Deployed</div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="section-label">About Me</div>
+      <h2 class="section-title">Engineer. Builder.<br>AI Practitioner.</h2>
+      <p>I'm <strong>Marcelo Jiménez R.</strong>, a Software Engineer at <strong>MCP Server Solutions</strong> — a startup building the infrastructure layer that connects AI agents to real-world tools and data sources through the Model Context Protocol.</p>
+      <p>Currently pursuing a Master's in <strong>Machine Learning Fundamentals</strong> at Indiana Wesleyan University, I apply AI/ML concepts directly to production systems — from intelligent chatbots to real-time product intelligence tools powered by live data APIs.</p>
+      <p>This portfolio showcases three applied AI artifacts developed during the course — each demonstrating a distinct capability: <strong>conversational AI</strong>, <strong>real-time data intelligence</strong>, and <strong>AI-powered leadership coaching</strong>.</p>
+      <a href="https://linkedin.com/in/marcelojimenezr" target="_blank" class="btn-outline" style="display:inline-flex;margin-top:1rem;">View LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
 
-COMPETENCIES
-Skills & Technologies
-🔗
-Model Context Protocol
-Designing and deploying MCP servers that connect AI agents to external tools and data sources
-🤖
-Large Language Models
-Claude API, prompt engineering, structured outputs, multi-turn conversations
-⚡
-Serverless Architecture
-Vercel Functions, Node.js backends, REST API design and integration
-📊
-ML Fundamentals
-Supervised/unsupervised learning, model evaluation, feature engineering
-🔍
-Real-time Data APIs
-Live product data, web scraping APIs, structured data extraction at scale
-🎨
-AI Product Design
-End-to-end AI product development from concept to deployed, user-facing applications
+<div class="full-divider"></div>
 
-COURSE WORK
-Portfolio Artifacts
-Three applied AI projects demonstrating distinct competencies — from conversational AI and real-time product intelligence to AI-powered leadership coaching.
-ARTIFACT 01
+<section id="skills">
+  <div class="section-label">Competencies</div>
+  <h2 class="section-title">Skills & Technologies</h2>
+  <div class="skills-grid">
+    <div class="skill-card"><div class="skill-icon">🔗</div><div class="skill-name">Model Context Protocol</div><div class="skill-desc">Designing and deploying MCP servers that connect AI agents to external tools and data sources</div></div>
+    <div class="skill-card"><div class="skill-icon">🤖</div><div class="skill-name">Large Language Models</div><div class="skill-desc">Claude API, prompt engineering, structured outputs, multi-turn conversations</div></div>
+    <div class="skill-card"><div class="skill-icon">⚡</div><div class="skill-name">Serverless Architecture</div><div class="skill-desc">Vercel Functions, Node.js backends, REST API design and integration</div></div>
+    <div class="skill-card"><div class="skill-icon">📊</div><div class="skill-name">ML Fundamentals</div><div class="skill-desc">Supervised/unsupervised learning, model evaluation, feature engineering</div></div>
+    <div class="skill-card"><div class="skill-icon">🔍</div><div class="skill-name">Real-time Data APIs</div><div class="skill-desc">Live product data, web scraping APIs, structured data extraction at scale</div></div>
+    <div class="skill-card"><div class="skill-icon">🎨</div><div class="skill-name">AI Product Design</div><div class="skill-desc">End-to-end AI product development from concept to deployed, user-facing applications</div></div>
+  </div>
+</section>
 
+<div class="full-divider"></div>
 
-RecycleBot SF
-Compost · Recycle · Landfill
-RecycleBot SF
-An AI-powered conversational assistant that helps San Francisco residents make correct recycling decisions. Built with Chatbase and trained on SFPUC recycling guidelines.
-Conversational AI
-Chatbase
-RAG
-Public Service
-Try RecycleBot SF →
-ARTIFACT 02
+<section id="artifacts">
+  <div class="section-label">Course Work</div>
+  <h2 class="section-title">Portfolio Artifacts</h2>
+  <p style="color:var(--gray);font-size:1rem;font-weight:300;max-width:620px;margin-bottom:2rem;">Three applied AI projects demonstrating distinct competencies — from conversational AI and real-time product intelligence to AI-powered leadership coaching.</p>
 
+  <div class="artifacts-grid">
 
-Clean, Clear & Safe
-AI Product Analyzer · Amazon
-Clean, Clear & Safe
-AI-powered product analyzer that identifies toxic compounds in consumer products and recommends 6 cleaner alternatives with real-time Amazon pricing and availability.
-Claude API
-Amazon Data API
-Vercel
-Real-time Data
-Try Personal Shopper →
-ARTIFACT 03
-🔮
-THE ORACLE OF LEADERS
+    <!-- Artifact 01 -->
+    <div class="artifact-card">
+      <div class="artifact-preview">
+        <span class="artifact-num">Artifact 01</span>
+        <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800&q=80" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.05) 100%);"></div>
+        <div style="position:absolute;bottom:12px;left:12px;">
+          <div style="font-size:14px;font-weight:600;color:white;">RecycleBot SF</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:2px;">Compost · Recycle · Landfill</div>
+        </div>
+      </div>
+      <div class="artifact-body">
+        <div class="artifact-title">RecycleBot SF</div>
+        <div class="artifact-desc">An AI-powered conversational assistant that helps San Francisco residents make correct recycling decisions. Built with Chatbase and trained on SFPUC recycling guidelines.</div>
+        <div class="artifact-tags">
+          <span class="tag">Conversational AI</span>
+          <span class="tag">Chatbase</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Public Service</span>
+        </div>
+        <a href="https://www.chatbase.co/chatbot-iframe/EnSgRRuPsZZ4VaUQlPGrj" target="_blank" class="artifact-link">Try RecycleBot SF →</a>
+      </div>
+    </div>
 
-The Oracle of Leaders
-AI Leadership Coach · Bilingual
-The Oracle of Leaders
-AI-powered leadership coaching tool that delivers personalized expert perspectives — philosopher, psychologist, and iconic leader — plus a documented real-world case and a concrete weekly action, in English and Spanish.
-Claude API
-Prompt Engineering
-Vercel
-Bilingual
-Try The Oracle →
+    <!-- Artifact 02 -->
+    <div class="artifact-card">
+      <div class="artifact-preview">
+        <span class="artifact-num">Artifact 02</span>
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.05) 100%);"></div>
+        <div style="position:absolute;bottom:12px;left:12px;">
+          <div style="font-size:14px;font-weight:600;color:white;">Clean, Clear & Safe</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:2px;">AI Product Analyzer · Amazon</div>
+        </div>
+      </div>
+      <div class="artifact-body">
+        <div class="artifact-title">Clean, Clear & Safe</div>
+        <div class="artifact-desc">AI-powered product analyzer that identifies toxic compounds in consumer products and recommends 6 cleaner alternatives with real-time Amazon pricing and availability.</div>
+        <div class="artifact-tags">
+          <span class="tag">Claude API</span>
+          <span class="tag">Amazon Data API</span>
+          <span class="tag">Vercel</span>
+          <span class="tag">Real-time Data</span>
+        </div>
+        <a href="https://ccs-personal-shopper.vercel.app" target="_blank" class="artifact-link">Try Personal Shopper →</a>
+      </div>
+    </div>
 
-ACADEMIC REFLECTION
-What I Learned
-💡
-Audience Customization
-Both artifacts were designed for an academic audience — specifically, instructors and peers in a graduate AI/ML program. RecycleBot SF demonstrates applied conversational AI with domain-specific knowledge, targeting a real public need. Clean, Clear & Safe demonstrates technical depth through compound toxicity scoring and live API integration. The design choices — professional UI, technical vocabulary, real data — reflect the academic standard of rigor expected at the graduate level while remaining accessible to non-technical reviewers.
-🔧
-Technical Lessons
-Deploying AI applications to production revealed the gap between prototype and production: API authentication, environment variables, CORS, serverless function timeouts, and JSON parsing edge cases all required careful handling. Each failure was a precise diagnostic exercise in systems thinking.
-🔄
-Iteration Process
-The CCS Personal Shopper went through 9+ design iterations — from static mockups to a fully deployed, API-connected application. Each round of feedback sharpened both the UX and the backend architecture.
-🎯
-AI/ML Application
-This course deepened my understanding of how foundational ML concepts — classification, scoring systems, structured inference — apply directly to production AI products. The CCS scoring algorithm is essentially a domain-specific classification model implemented via LLM prompting.
-📈
-Value Proposition
-Both artifacts demonstrate a core MCP principle: AI is most powerful when connected to real, live data. A chatbot with static knowledge is useful. A chatbot that queries live APIs, scores results, and returns actionable recommendations is transformative.
+    <!-- Artifact 03 -->
+    <div class="artifact-card">
+      <div class="artifact-preview">
+        <span class="artifact-num">Artifact 03</span>
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,#f5f0e8 0%,#ede5d0 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;">
+          <div style="font-size:52px;animation:float 4s ease-in-out infinite;">🔮</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:13px;color:#7a6330;letter-spacing:.08em;text-transform:uppercase;">The Oracle of Leaders</div>
+        </div>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,22,18,0.5) 0%,rgba(0,0,0,0) 60%);"></div>
+        <div style="position:absolute;bottom:12px;left:12px;">
+          <div style="font-size:14px;font-weight:600;color:white;">The Oracle of Leaders</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:2px;">AI Leadership Coach · Bilingual</div>
+        </div>
+      </div>
+      <div class="artifact-body">
+        <div class="artifact-title">The Oracle of Leaders</div>
+        <div class="artifact-desc">AI-powered leadership coaching tool that delivers personalized expert perspectives — philosopher, psychologist, and iconic leader — plus a documented real-world case and a concrete weekly action, in English and Spanish.</div>
+        <div class="artifact-tags">
+          <span class="tag">Claude API</span>
+          <span class="tag">Prompt Engineering</span>
+          <span class="tag">Vercel</span>
+          <span class="tag">Bilingual</span>
+        </div>
+        <a href="https://oracle-of-leaders.vercel.app" target="_blank" class="artifact-link">Try The Oracle →</a>
+      </div>
+    </div>
 
-Marcelo Jiménez R.
-LinkedIn
-The Oracle
-CCS Shopper
-RecycleBot
-AIML-500 · Indiana Wesleyan University · 2026
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<section id="reflection">
+  <div class="section-label">Academic Reflection</div>
+  <h2 class="section-title">What I Learned</h2>
+  <div class="reflection-grid">
+    <div class="reflection-card featured">
+      <div class="reflection-icon">💡</div>
+      <div class="reflection-title">Audience Customization</div>
+      <div class="reflection-text">Both artifacts were designed for an academic audience — specifically, instructors and peers in a graduate AI/ML program. RecycleBot SF demonstrates applied conversational AI with domain-specific knowledge, targeting a real public need. Clean, Clear & Safe demonstrates technical depth through compound toxicity scoring and live API integration. The design choices — professional UI, technical vocabulary, real data — reflect the academic standard of rigor expected at the graduate level while remaining accessible to non-technical reviewers.</div>
+    </div>
+    <div class="reflection-card">
+      <div class="reflection-icon">🔧</div>
+      <div class="reflection-title">Technical Lessons</div>
+      <div class="reflection-text">Deploying AI applications to production revealed the gap between prototype and production: API authentication, environment variables, CORS, serverless function timeouts, and JSON parsing edge cases all required careful handling. Each failure was a precise diagnostic exercise in systems thinking.</div>
+    </div>
+    <div class="reflection-card">
+      <div class="reflection-icon">🔄</div>
+      <div class="reflection-title">Iteration Process</div>
+      <div class="reflection-text">The CCS Personal Shopper went through 9+ design iterations — from static mockups to a fully deployed, API-connected application. Each round of feedback sharpened both the UX and the backend architecture.</div>
+    </div>
+    <div class="reflection-card">
+      <div class="reflection-icon">🎯</div>
+      <div class="reflection-title">AI/ML Application</div>
+      <div class="reflection-text">This course deepened my understanding of how foundational ML concepts — classification, scoring systems, structured inference — apply directly to production AI products. The CCS scoring algorithm is essentially a domain-specific classification model implemented via LLM prompting.</div>
+    </div>
+    <div class="reflection-card">
+      <div class="reflection-icon">📈</div>
+      <div class="reflection-title">Value Proposition</div>
+      <div class="reflection-text">Both artifacts demonstrate a core MCP principle: AI is most powerful when connected to real, live data. A chatbot with static knowledge is useful. A chatbot that queries live APIs, scores results, and returns actionable recommendations is transformative.</div>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+<footer>
+  <div class="footer-name">Marcelo Jiménez R.</div>
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/marcelojimenezr" target="_blank">LinkedIn</a>
+    <a href="https://oracle-of-leaders.vercel.app" target="_blank">The Oracle</a>
+    <a href="https://ccs-personal-shopper.vercel.app" target="_blank">CCS Shopper</a>
+    <a href="https://www.chatbase.co/chatbot-iframe/EnSgRRuPsZZ4VaUQlPGrj" target="_blank">RecycleBot</a>
+  </div>
+  <div class="footer-copy">AIML-500 · Indiana Wesleyan University · 2026</div>
+</footer>
+
+</body>
+</html>
