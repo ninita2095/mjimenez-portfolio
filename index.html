@@ -49,52 +49,52 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
 .full-divider{height:0.5px;background:var(--border);max-width:1100px;margin:0 auto;}
 .full-divider-wide{height:0.5px;background:var(--border);}
 /* AUDIENCE */
-.audience-wrap{padding:5rem 3rem;max-width:1100px;margin:0 auto;}
-.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;}
-.audience-card{padding:2rem;border:0.5px solid var(--border);border-radius:16px;background:var(--white);position:relative;overflow:hidden;}
+.audience-wrap{padding:3rem 3rem;max-width:1100px;margin:0 auto;}
+.audience-layout{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;margin-top:1.5rem;}
+.audience-card{padding:1.5rem;border:0.5px solid var(--border);border-radius:16px;background:var(--white);position:relative;overflow:hidden;}
 .audience-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);}
-.audience-icon{font-size:2rem;margin-bottom:1rem;}
-.audience-card h3{font-family:'DM Serif Display',serif;font-size:1.25rem;margin-bottom:0.75rem;}
-.audience-card p{font-size:0.9rem;color:var(--gray);line-height:1.7;font-weight:300;}
-.audience-relevance{margin-top:2rem;padding:1.5rem;background:var(--green-light);border-radius:12px;}
+.audience-icon{font-size:1.75rem;margin-bottom:0.75rem;}
+.audience-card h3{font-family:'DM Serif Display',serif;font-size:1.15rem;margin-bottom:0.5rem;}
+.audience-card p{font-size:0.875rem;color:var(--gray);line-height:1.6;font-weight:300;}
+.audience-relevance{padding:1.25rem;background:var(--green-light);border-radius:12px;}
 .audience-relevance-title{font-size:11px;font-weight:600;color:var(--green);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.75rem;}
-.audience-relevance ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.5rem;}
-.audience-relevance li{font-size:13px;color:#1a5c44;display:flex;gap:8px;line-height:1.5;}
+.audience-relevance ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.4rem;}
+.audience-relevance li{font-size:12px;color:#1a5c44;display:flex;gap:8px;line-height:1.5;}
 .audience-relevance li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
 /* ARTIFACTS */
-.artifact-section{padding:5rem 3rem;max-width:1100px;margin:0 auto;}
-.ad-top{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-bottom:3rem;}
-.ad-img-wrap{border-radius:16px;overflow:hidden;aspect-ratio:16/10;position:relative;}
+.artifact-section{padding:3rem 3rem;max-width:1100px;margin:0 auto;}
+.ad-top{display:grid;grid-template-columns:360px 1fr;gap:2rem;align-items:start;margin-bottom:1.5rem;}
+.ad-img-wrap{border-radius:12px;overflow:hidden;aspect-ratio:16/10;max-height:210px;}
 .ad-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
-.ad-img-badge{position:absolute;top:1rem;left:1rem;font-size:11px;font-weight:600;color:var(--green);background:var(--green-light);padding:4px 10px;border-radius:20px;letter-spacing:0.06em;text-transform:uppercase;}
-.ad-info{display:flex;flex-direction:column;gap:1rem;}
-.ad-info h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);line-height:1.1;letter-spacing:-0.02em;}
-.ad-info p{font-size:0.95rem;color:var(--gray);line-height:1.7;font-weight:300;}
-.ad-tags{display:flex;flex-wrap:wrap;gap:6px;}
-.tag{font-size:11px;padding:4px 10px;border-radius:20px;background:var(--gray-light);color:var(--gray);font-weight:500;}
+.ad-img-wrap-gradient{border-radius:12px;overflow:hidden;aspect-ratio:16/10;max-height:210px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;}
+.ad-info{display:flex;flex-direction:column;gap:0.6rem;}
+.ad-info h2{font-family:'DM Serif Display',serif;font-size:1.8rem;line-height:1.1;letter-spacing:-0.02em;}
+.ad-info p{font-size:0.875rem;color:var(--gray);line-height:1.6;font-weight:300;}
+.ad-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.tag{font-size:11px;padding:3px 9px;border-radius:20px;background:var(--gray-light);color:var(--gray);font-weight:500;}
 .ad-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--green);text-decoration:none;}
 .ad-link:hover{gap:10px;}
-.ad-bottom{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;border-top:0.5px solid var(--border);padding-top:2rem;}
-.ad-col-title{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);margin-bottom:0.75rem;}
-.ad-feat-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem;}
-.ad-feat-list li{font-size:13px;color:var(--gray);display:flex;gap:8px;line-height:1.5;}
+.ad-bottom{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;border-top:0.5px solid var(--border);padding-top:1.25rem;margin-bottom:1.25rem;}
+.ad-col-title{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);margin-bottom:0.5rem;}
+.ad-feat-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.3rem;}
+.ad-feat-list li{font-size:12px;color:var(--gray);display:flex;gap:6px;line-height:1.4;}
 .ad-feat-list li span{color:var(--green);flex-shrink:0;}
-.ad-meta-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:0.5px solid var(--border);font-size:13px;}
+.ad-meta-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:0.5px solid var(--border);font-size:12px;}
 .ad-meta-row:last-child{border-bottom:none;}
 .ad-meta-label{color:var(--gray);}
 .ad-meta-val{font-weight:500;}
-/* REFERENCES */
-.ad-references{margin-top:2rem;padding-top:1.5rem;border-top:0.5px solid var(--border);}
-.ad-ref-title{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);margin-bottom:0.75rem;}
-.ad-ref-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.5rem;}
-.ad-ref-list li{font-size:12px;color:var(--gray);line-height:1.6;padding-left:1rem;position:relative;}
+.ad-references{padding-top:1rem;border-top:0.5px solid var(--border);}
+.ad-ref-title{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);margin-bottom:0.5rem;}
+.ad-ref-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.3rem;}
+.ad-ref-list li{font-size:11px;color:var(--gray);line-height:1.5;padding-left:1rem;position:relative;}
 .ad-ref-list li::before{content:'·';position:absolute;left:0;color:var(--green);font-weight:700;}
 @media(max-width:768px){
   nav{padding:1rem 1.5rem;}
   .nav-links{gap:1rem;font-size:12px;}
   .hero,.artifact-section,section,.audience-wrap{padding-left:1.5rem;padding-right:1.5rem;}
-  .about-grid,.ad-top,.ad-bottom,.audience-grid{grid-template-columns:1fr;gap:2rem;}
+  .about-grid,.ad-top,.ad-bottom,.audience-layout{grid-template-columns:1fr;gap:1.5rem;}
   .about-badge{bottom:1rem;right:1rem;}
+  .ad-top{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -163,28 +163,23 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
   <div class="audience-wrap">
     <div class="section-label">Target Audience</div>
     <h2 class="section-title">Who This Portfolio Is For</h2>
-    <p style="font-size:1rem;color:var(--gray);max-width:700px;font-weight:300;line-height:1.8;margin-bottom:2rem;">This portfolio is designed for an <strong style="color:var(--black);">academic audience</strong> — specifically professors, peer reviewers, and fellow students in the <strong style="color:var(--black);">AIML-500 Machine Learning Fundamentals</strong> program at Indiana Wesleyan University. Each artifact demonstrates applied mastery of course concepts through real, deployed AI systems.</p>
-    <div class="audience-grid">
+    <p style="font-size:0.95rem;color:var(--gray);max-width:800px;font-weight:300;line-height:1.8;margin-bottom:1.5rem;">This portfolio is designed for an <strong style="color:var(--black);">academic audience</strong> — specifically professors, peer reviewers, and fellow students in the <strong style="color:var(--black);">AIML-500 Machine Learning Fundamentals</strong> program at Indiana Wesleyan University. Each artifact demonstrates applied mastery of course concepts through real, deployed AI systems.</p>
+    <div class="audience-layout">
       <div class="audience-card">
         <div class="audience-icon">🎓</div>
         <h3>Professors & Academic Evaluators</h3>
         <p>Faculty assessing the depth of applied AI/ML knowledge acquired throughout the master's program. Each artifact maps directly to core course competencies: RAG, prompt engineering, computer vision, API orchestration, and multimodal LLM applications.</p>
       </div>
-      <div class="audience-card">
-        <div class="audience-icon">👥</div>
-        <h3>Peer Students & Learning Community</h3>
-        <p>Fellow AIML-500 cohort members providing constructive feedback. Each artifact is documented with sufficient technical detail to enable meaningful peer critique of methodology, tool selection, and learning outcomes.</p>
+      <div class="audience-relevance">
+        <div class="audience-relevance-title">Why This Portfolio Is Relevant to This Audience</div>
+        <ul>
+          <li>Each artifact maps to specific AI/ML concepts covered in the AIML-500 curriculum (RAG, prompt engineering, computer vision, structured inference)</li>
+          <li>All tools and technologies reflect industry-standard practices taught throughout the master's program</li>
+          <li>Every project is deployed and live — demonstrating end-to-end implementation, not just theoretical understanding</li>
+          <li>Documentation follows academic portfolio standards with clear objectives, process descriptions, and value propositions</li>
+          <li>Artifacts span diverse AI application domains, showcasing breadth of learning across course modules</li>
+        </ul>
       </div>
-    </div>
-    <div class="audience-relevance">
-      <div class="audience-relevance-title">Why This Portfolio Is Relevant to This Audience</div>
-      <ul>
-        <li>Each artifact maps to specific AI/ML concepts covered in the AIML-500 curriculum (RAG, prompt engineering, computer vision, structured inference)</li>
-        <li>All tools and technologies reflect industry-standard practices taught throughout the master's program</li>
-        <li>Every project is deployed and live — demonstrating end-to-end implementation, not just theoretical understanding</li>
-        <li>Documentation follows academic portfolio standards with clear objectives, process descriptions, and value propositions</li>
-        <li>Artifacts span diverse AI application domains, showcasing breadth of learning across course modules</li>
-      </ul>
     </div>
   </div>
 </div>
@@ -192,13 +187,12 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
 <div class="full-divider-wide"></div>
 
 <!-- ARTIFACT 1 -->
-<div id="artifact1" style="background:#f6faf8;min-height:100vh;scroll-margin-top:60px;">
+<div id="artifact1" style="background:#f6faf8;scroll-margin-top:60px;">
   <div class="artifact-section">
     <div class="section-label">Artifact 01 — Conversational AI</div>
     <div class="ad-top">
       <div class="ad-img-wrap">
         <img src="recyclebot-screenshot.png" alt="RecycleBot SF" />
-        <div class="ad-img-badge">Artifact 01</div>
       </div>
       <div class="ad-info">
         <h2>RecycleBot SF</h2>
@@ -248,13 +242,12 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
 <div class="full-divider-wide"></div>
 
 <!-- ARTIFACT 2 -->
-<div id="artifact2" style="background:var(--white);min-height:100vh;scroll-margin-top:60px;">
+<div id="artifact2" style="background:var(--white);scroll-margin-top:60px;">
   <div class="artifact-section">
     <div class="section-label">Artifact 02 — Real-time Data Intelligence</div>
     <div class="ad-top">
       <div class="ad-img-wrap">
         <img src="ccs-screenshot.png" alt="Clean, Clear & Safe" />
-        <div class="ad-img-badge">Artifact 02</div>
       </div>
       <div class="ad-info">
         <h2>Clean, Clear & Safe</h2>
@@ -304,14 +297,13 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
 <div class="full-divider-wide"></div>
 
 <!-- ARTIFACT 3 -->
-<div id="artifact3" style="background:#faf8f4;min-height:100vh;scroll-margin-top:60px;">
+<div id="artifact3" style="background:#faf8f4;scroll-margin-top:60px;">
   <div class="artifact-section">
     <div class="section-label">Artifact 03 — Multi-Persona AI Coaching</div>
     <div class="ad-top">
-      <div class="ad-img-wrap" style="background:linear-gradient(135deg,#1a1612,#3d2f1a,#5c4423);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;">
-        <div style="font-size:4rem;">🔮</div>
-        <div style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:rgba(255,220,160,0.9);">The Oracle of Leaders</div>
-        <div class="ad-img-badge">Artifact 03</div>
+      <div class="ad-img-wrap-gradient" style="background:linear-gradient(135deg,#1a1612,#3d2f1a,#5c4423);">
+        <div style="font-size:3.5rem;">🔮</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1rem;color:rgba(255,220,160,0.9);">The Oracle of Leaders</div>
       </div>
       <div class="ad-info">
         <h2>The Oracle of Leaders</h2>
@@ -361,24 +353,21 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
 <div class="full-divider-wide"></div>
 
 <!-- ARTIFACT 4 -->
-<div id="artifact4" style="background:#f0f4ff;min-height:100vh;scroll-margin-top:60px;">
+<div id="artifact4" style="background:#f0f4ff;scroll-margin-top:60px;">
   <div class="artifact-section">
     <div class="section-label">Artifact 04 — Computer Vision & ML Pipeline</div>
     <div class="ad-top">
       <div class="ad-img-wrap" style="background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);">
         <img src="snapsift-screenshot.png" alt="SnapSift AI" style="width:100%;height:100%;object-fit:cover;opacity:0.9;" />
-        <div class="ad-img-badge">Artifact 04</div>
       </div>
       <div class="ad-info">
         <h2>SnapSift AI</h2>
-        <p style="font-size:1rem;color:rgba(0,0,0,0.55);margin:4px 0 8px;font-style:italic;">Intelligent Photo Organizer</p>
+        <p style="font-style:italic;color:rgba(0,0,0,0.5);font-size:0.85rem;margin-bottom:2px;">Intelligent Photo Organizer</p>
         <p>AI-powered desktop app that filters, deduplicates, and organizes photos from any ZIP file using computer vision — 100% local, Privacy by Design.</p>
-        <div class="ad-tags">
-          <span class="tag">Claude Vision API</span><span class="tag">Computer Vision</span><span class="tag">Python</span><span class="tag">Privacy by Design</span>
-        </div>
-        <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;">
-          <a href="https://github.com/ninita2095/mjimenez-portfolio/releases/download/v1.0/SnapSift-AI-Mac.zip" style="background:#1a1a2e;color:white;padding:8px 16px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">⬇ Download for Mac</a>
-          <a href="https://github.com/ninita2095/mjimenez-portfolio/releases/download/v1.0/SnapSift-AI-Windows.zip" style="background:#16213e;color:white;padding:8px 16px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">⬇ Download for Windows</a>
+        <div class="ad-tags"><span class="tag">Claude Vision API</span><span class="tag">Computer Vision</span><span class="tag">Python</span><span class="tag">Privacy by Design</span></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="https://github.com/ninita2095/mjimenez-portfolio/releases/download/v1.0/SnapSift-AI-Mac.zip" style="background:#1a1a2e;color:white;padding:7px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.8rem;">⬇ Download for Mac</a>
+          <a href="https://github.com/ninita2095/mjimenez-portfolio/releases/download/v1.0/SnapSift-AI-Windows.zip" style="background:#16213e;color:white;padding:7px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.8rem;">⬇ Download for Windows</a>
         </div>
       </div>
     </div>
