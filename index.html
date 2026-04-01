@@ -48,6 +48,20 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
 .skill-desc{font-size:11px;color:var(--gray);line-height:1.5;}
 .full-divider{height:0.5px;background:var(--border);max-width:1100px;margin:0 auto;}
 .full-divider-wide{height:0.5px;background:var(--border);}
+/* AUDIENCE */
+.audience-wrap{padding:5rem 3rem;max-width:1100px;margin:0 auto;}
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;}
+.audience-card{padding:2rem;border:0.5px solid var(--border);border-radius:16px;background:var(--white);position:relative;overflow:hidden;}
+.audience-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);}
+.audience-icon{font-size:2rem;margin-bottom:1rem;}
+.audience-card h3{font-family:'DM Serif Display',serif;font-size:1.25rem;margin-bottom:0.75rem;}
+.audience-card p{font-size:0.9rem;color:var(--gray);line-height:1.7;font-weight:300;}
+.audience-relevance{margin-top:2rem;padding:1.5rem;background:var(--green-light);border-radius:12px;}
+.audience-relevance-title{font-size:11px;font-weight:600;color:var(--green);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.75rem;}
+.audience-relevance ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.5rem;}
+.audience-relevance li{font-size:13px;color:#1a5c44;display:flex;gap:8px;line-height:1.5;}
+.audience-relevance li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
+/* ARTIFACTS */
 .artifact-section{padding:5rem 3rem;max-width:1100px;margin:0 auto;}
 .ad-top{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-bottom:3rem;}
 .ad-img-wrap{border-radius:16px;overflow:hidden;aspect-ratio:16/10;position:relative;}
@@ -69,23 +83,10 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
 .ad-meta-row:last-child{border-bottom:none;}
 .ad-meta-label{color:var(--gray);}
 .ad-meta-val{font-weight:500;}
-/* AUDIENCE */
-.audience-wrap{padding:5rem 3rem;max-width:1100px;margin:0 auto;}
-.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;}
-.audience-card{padding:2rem;border:0.5px solid var(--border);border-radius:16px;background:var(--white);position:relative;overflow:hidden;}
-.audience-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);}
-.audience-icon{font-size:2rem;margin-bottom:1rem;}
-.audience-card h3{font-family:'DM Serif Display',serif;font-size:1.25rem;margin-bottom:0.75rem;}
-.audience-card p{font-size:0.9rem;color:var(--gray);line-height:1.7;font-weight:300;}
-.audience-relevance{margin-top:2rem;padding:1.5rem;background:var(--green-light);border-radius:12px;}
-.audience-relevance-title{font-size:11px;font-weight:600;color:var(--green);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.75rem;}
-.audience-relevance ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.5rem;}
-.audience-relevance li{font-size:13px;color:#1a5c44;display:flex;gap:8px;line-height:1.5;}
-.audience-relevance li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
 /* REFERENCES */
 .ad-references{margin-top:2rem;padding-top:1.5rem;border-top:0.5px solid var(--border);}
 .ad-ref-title{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);margin-bottom:0.75rem;}
-.ad-ref-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.4rem;}
+.ad-ref-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.5rem;}
 .ad-ref-list li{font-size:12px;color:var(--gray);line-height:1.6;padding-left:1rem;position:relative;}
 .ad-ref-list li::before{content:'·';position:absolute;left:0;color:var(--green);font-weight:700;}
 @media(max-width:768px){
@@ -93,6 +94,7 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
   .nav-links{gap:1rem;font-size:12px;}
   .hero,.artifact-section,section,.audience-wrap{padding-left:1.5rem;padding-right:1.5rem;}
   .about-grid,.ad-top,.ad-bottom,.audience-grid{grid-template-columns:1fr;gap:2rem;}
+  .about-badge{bottom:1rem;right:1rem;}
 }
 </style>
 </head>
@@ -141,15 +143,15 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
 
 <section id="skills" style="scroll-margin-top:60px;">
   <div class="section-label">Competencies</div>
-  <h2 class="section-title">Skills &amp; Technologies</h2>
+  <h2 class="section-title">Skills & Technologies</h2>
   <div class="skills-grid">
     <div class="skill-card"><div class="skill-icon">🤖</div><div class="skill-name">Large Language Models</div><div class="skill-desc">Claude API, prompt engineering, structured outputs, multi-turn conversations</div></div>
-    <div class="skill-card"><div class="skill-icon">🧠</div><div class="skill-name">Deep Learning &amp; Neural Networks</div><div class="skill-desc">Neural network architectures, training methods, supervised and unsupervised learning</div></div>
+    <div class="skill-card"><div class="skill-icon">🧠</div><div class="skill-name">Deep Learning & Neural Networks</div><div class="skill-desc">Neural network architectures, training methods, supervised and unsupervised learning</div></div>
     <div class="skill-card"><div class="skill-icon">🔗</div><div class="skill-name">Model Context Protocol</div><div class="skill-desc">Designing and deploying MCP servers that connect AI agents to external tools and data sources</div></div>
     <div class="skill-card"><div class="skill-icon">📊</div><div class="skill-name">ML Fundamentals</div><div class="skill-desc">Model evaluation, feature engineering, ML vs. deep learning tradeoffs</div></div>
     <div class="skill-card"><div class="skill-icon">⚡</div><div class="skill-name">Serverless Architecture</div><div class="skill-desc">Vercel Functions, Node.js backends, REST API design and integration</div></div>
     <div class="skill-card"><div class="skill-icon">🔍</div><div class="skill-name">Real-time Data APIs</div><div class="skill-desc">Live product data, web scraping APIs, structured data extraction at scale</div></div>
-    <div class="skill-card"><div class="skill-icon">🔄</div><div class="skill-name">Adaptability &amp; Change Leadership</div><div class="skill-desc">Applying ML insights to lead organizational and technology change</div></div>
+    <div class="skill-card"><div class="skill-icon">🔄</div><div class="skill-name">Adaptability & Change Leadership</div><div class="skill-desc">Applying ML insights to lead organizational and technology change</div></div>
     <div class="skill-card"><div class="skill-icon">🎨</div><div class="skill-name">AI Product Design</div><div class="skill-desc">End-to-end AI product development from concept to deployed, user-facing applications</div></div>
   </div>
 </section>
@@ -165,12 +167,12 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
     <div class="audience-grid">
       <div class="audience-card">
         <div class="audience-icon">🎓</div>
-        <h3>Professors &amp; Academic Evaluators</h3>
+        <h3>Professors & Academic Evaluators</h3>
         <p>Faculty assessing the depth of applied AI/ML knowledge acquired throughout the master's program. Each artifact maps directly to core course competencies: RAG, prompt engineering, computer vision, API orchestration, and multimodal LLM applications.</p>
       </div>
       <div class="audience-card">
         <div class="audience-icon">👥</div>
-        <h3>Peer Students &amp; Learning Community</h3>
+        <h3>Peer Students & Learning Community</h3>
         <p>Fellow AIML-500 cohort members providing constructive feedback. Each artifact is documented with sufficient technical detail to enable meaningful peer critique of methodology, tool selection, and learning outcomes.</p>
       </div>
     </div>
@@ -195,7 +197,7 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
     <div class="section-label">Artifact 01 — Conversational AI</div>
     <div class="ad-top">
       <div class="ad-img-wrap">
-        <img src="recyclebot-screenshot.png" alt="RecycleBot SF" onerror="this.style.background='linear-gradient(135deg,#1D9E75,#0d6b4f)';this.style.display='block';" />
+        <img src="recyclebot-screenshot.png" alt="RecycleBot SF" />
         <div class="ad-img-badge">Artifact 01</div>
       </div>
       <div class="ad-info">
@@ -227,17 +229,17 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
         <ul class="ad-feat-list">
           <li><span>→</span>Retrieval-Augmented Generation</li>
           <li><span>→</span>Classification via prompting</li>
-          <li><span>→</span>Knowledge curation &amp; indexing</li>
+          <li><span>→</span>Knowledge curation & indexing</li>
         </ul>
       </div>
     </div>
     <div class="ad-references">
       <div class="ad-ref-title">References</div>
       <ul class="ad-ref-list">
-        <li>San Francisco Public Utilities Commission. (2024). <em>Recycling &amp; Composting Guidelines.</em> SFPUC. <a href="https://www.sfpuc.org" target="_blank" style="color:var(--green);">sfpuc.org</a></li>
+        <li>San Francisco Public Utilities Commission. (2024). <em>Recycling & Composting Guidelines.</em> SFPUC. sfpuc.org</li>
         <li>Lewis, P., et al. (2020). Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. <em>NeurIPS 2020.</em> arXiv:2005.11401</li>
-        <li>Chatbase. (2024). <em>RAG-powered chatbot platform documentation.</em> <a href="https://www.chatbase.co" target="_blank" style="color:var(--green);">chatbase.co</a></li>
-        <li>Indiana Wesleyan University. (2024). AIML-500: Machine Learning Fundamentals — Residency AI &amp; ML Timelines module.</li>
+        <li>Chatbase. (2024). <em>RAG-powered chatbot platform documentation.</em> chatbase.co</li>
+        <li>Indiana Wesleyan University. (2024). AIML-500: Machine Learning Fundamentals — Residency AI & ML Timelines module.</li>
       </ul>
     </div>
   </div>
@@ -251,11 +253,11 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
     <div class="section-label">Artifact 02 — Real-time Data Intelligence</div>
     <div class="ad-top">
       <div class="ad-img-wrap">
-        <img src="ccs-screenshot.png" alt="Clean, Clear &amp; Safe" onerror="this.style.background='linear-gradient(135deg,#2c7be5,#1a4fa0)';this.style.display='block';" />
+        <img src="ccs-screenshot.png" alt="Clean, Clear & Safe" />
         <div class="ad-img-badge">Artifact 02</div>
       </div>
       <div class="ad-info">
-        <h2>Clean, Clear &amp; Safe</h2>
+        <h2>Clean, Clear & Safe</h2>
         <p>AI-powered product analyzer that identifies toxic compounds in consumer products and recommends 6 cleaner alternatives with real-time Amazon pricing and availability.</p>
         <div class="ad-tags"><span class="tag">Claude API</span><span class="tag">Amazon Data API</span><span class="tag">Vercel</span><span class="tag">Real-time Data</span></div>
         <a href="https://ccs-personal-shopper.vercel.app" target="_blank" class="ad-link">Try Personal Shopper →</a>
@@ -267,7 +269,7 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
         <ul class="ad-feat-list">
           <li><span>→</span>Ingredient toxicity scoring</li>
           <li><span>→</span>6 cleaner product alternatives</li>
-          <li><span>→</span>Live Amazon pricing &amp; availability</li>
+          <li><span>→</span>Live Amazon pricing & availability</li>
           <li><span>→</span>Serverless on Vercel</li>
         </ul>
       </div>
@@ -290,10 +292,10 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
     <div class="ad-references">
       <div class="ad-ref-title">References</div>
       <ul class="ad-ref-list">
-        <li>Anthropic. (2024). <em>Claude API Documentation — Structured Outputs &amp; Tool Use.</em> <a href="https://docs.anthropic.com" target="_blank" style="color:var(--green);">docs.anthropic.com</a></li>
-        <li>Environmental Working Group. (2024). <em>EWG's Skin Deep® Cosmetics Database.</em> <a href="https://www.ewg.org/skindeep" target="_blank" style="color:var(--green);">ewg.org/skindeep</a></li>
-        <li>Vercel. (2024). <em>Serverless Functions Documentation.</em> <a href="https://vercel.com/docs" target="_blank" style="color:var(--green);">vercel.com/docs</a></li>
-        <li>Indiana Wesleyan University. (2024). AIML-500: Machine Learning Fundamentals — API Integration &amp; LLM Orchestration module.</li>
+        <li>Anthropic. (2024). <em>Claude API Documentation — Structured Outputs & Tool Use.</em> docs.anthropic.com</li>
+        <li>Environmental Working Group. (2024). <em>EWG's Skin Deep Cosmetics Database.</em> ewg.org/skindeep</li>
+        <li>Vercel. (2024). <em>Serverless Functions Documentation.</em> vercel.com/docs</li>
+        <li>Indiana Wesleyan University. (2024). AIML-500: Machine Learning Fundamentals — API Integration & LLM Orchestration module.</li>
       </ul>
     </div>
   </div>
@@ -325,7 +327,7 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
           <li><span>→</span>3 expert personas simultaneously</li>
           <li><span>→</span>Real-world leadership case study</li>
           <li><span>→</span>Weekly action plan</li>
-          <li><span>→</span>English &amp; Spanish natively</li>
+          <li><span>→</span>English & Spanish natively</li>
         </ul>
       </div>
       <div>
@@ -347,10 +349,10 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
     <div class="ad-references">
       <div class="ad-ref-title">References</div>
       <ul class="ad-ref-list">
-        <li>Anthropic. (2024). <em>Claude API — System Prompts &amp; Multi-turn Conversations.</em> <a href="https://docs.anthropic.com" target="_blank" style="color:var(--green);">docs.anthropic.com</a></li>
+        <li>Anthropic. (2024). <em>Claude API — System Prompts & Multi-turn Conversations.</em> docs.anthropic.com</li>
         <li>Northouse, P. G. (2021). <em>Leadership: Theory and Practice</em> (9th ed.). SAGE Publications.</li>
         <li>White, J., et al. (2023). A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT. <em>arXiv:2302.11382</em></li>
-        <li>Indiana Wesleyan University. (2024). AIML-500: Machine Learning Fundamentals — Prompt Engineering &amp; LLM Persona Design module.</li>
+        <li>Indiana Wesleyan University. (2024). AIML-500: Machine Learning Fundamentals — Prompt Engineering & LLM Persona Design module.</li>
       </ul>
     </div>
   </div>
@@ -361,10 +363,10 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
 <!-- ARTIFACT 4 -->
 <div id="artifact4" style="background:#f0f4ff;min-height:100vh;scroll-margin-top:60px;">
   <div class="artifact-section">
-    <div class="section-label">Artifact 04 — Computer Vision &amp; ML Pipeline</div>
+    <div class="section-label">Artifact 04 — Computer Vision & ML Pipeline</div>
     <div class="ad-top">
       <div class="ad-img-wrap" style="background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);">
-        <img src="snapsift-screenshot.png" alt="SnapSift AI" style="width:100%;height:100%;object-fit:cover;border-radius:12px;opacity:0.9;" onerror="this.style.display='none';" />
+        <img src="snapsift-screenshot.png" alt="SnapSift AI" style="width:100%;height:100%;object-fit:cover;opacity:0.9;" />
         <div class="ad-img-badge">Artifact 04</div>
       </div>
       <div class="ad-info">
@@ -375,8 +377,8 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
           <span class="tag">Claude Vision API</span><span class="tag">Computer Vision</span><span class="tag">Python</span><span class="tag">Privacy by Design</span>
         </div>
         <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;">
-          <a href="https://github.com/ninita2095/mjimenez-portfolio/releases/download/v1.0/SnapSift-AI-Mac.zip" class="ad-link" style="background:#1a1a2e;color:white;padding:8px 16px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">⬇ Download for Mac</a>
-          <a href="https://github.com/ninita2095/mjimenez-portfolio/releases/download/v1.0/SnapSift-AI-Windows.zip" class="ad-link" style="background:#16213e;color:white;padding:8px 16px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">⬇ Download for Windows</a>
+          <a href="https://github.com/ninita2095/mjimenez-portfolio/releases/download/v1.0/SnapSift-AI-Mac.zip" style="background:#1a1a2e;color:white;padding:8px 16px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">⬇ Download for Mac</a>
+          <a href="https://github.com/ninita2095/mjimenez-portfolio/releases/download/v1.0/SnapSift-AI-Windows.zip" style="background:#16213e;color:white;padding:8px 16px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">⬇ Download for Windows</a>
         </div>
       </div>
     </div>
@@ -392,7 +394,7 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
       </div>
       <div>
         <div class="ad-col-title">Project Details</div>
-        <div class="ad-meta-row"><span class="ad-meta-label">Platform</span><span class="ad-meta-val">Desktop (Mac &amp; Win)</span></div>
+        <div class="ad-meta-row"><span class="ad-meta-label">Platform</span><span class="ad-meta-val">Desktop (Mac & Win)</span></div>
         <div class="ad-meta-row"><span class="ad-meta-label">Method</span><span class="ad-meta-val">Vision + Hashing</span></div>
         <div class="ad-meta-row"><span class="ad-meta-label">Domain</span><span class="ad-meta-val">Photo Management</span></div>
         <div class="ad-meta-row"><span class="ad-meta-label">Status</span><span class="ad-meta-val">✅ Desktop App</span></div>
@@ -402,7 +404,7 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
         <ul class="ad-feat-list">
           <li><span>→</span>Multimodal image classification</li>
           <li><span>→</span>Similarity detection algorithms</li>
-          <li><span>→</span>LLM summarization &amp; insights</li>
+          <li><span>→</span>LLM summarization & insights</li>
           <li><span>→</span>Prompt engineering iterations</li>
         </ul>
       </div>
@@ -410,10 +412,10 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
     <div class="ad-references">
       <div class="ad-ref-title">References</div>
       <ul class="ad-ref-list">
-        <li>Anthropic. (2024). <em>Claude Vision API — Multimodal Image Analysis.</em> <a href="https://docs.anthropic.com" target="_blank" style="color:var(--green);">docs.anthropic.com</a></li>
+        <li>Anthropic. (2024). <em>Claude Vision API — Multimodal Image Analysis.</em> docs.anthropic.com</li>
         <li>Zauner, C. (2010). Implementation and Benchmarking of Perceptual Image Hash Functions. <em>University of Applied Sciences Upper Austria.</em></li>
-        <li>Python Software Foundation. (2024). <em>Python 3.x Documentation.</em> <a href="https://docs.python.org" target="_blank" style="color:var(--green);">docs.python.org</a></li>
-        <li>Indiana Wesleyan University. (2024). AIML-500: Machine Learning Fundamentals — Computer Vision &amp; Multimodal AI module.</li>
+        <li>Python Software Foundation. (2024). <em>Python 3.x Documentation.</em> docs.python.org</li>
+        <li>Indiana Wesleyan University. (2024). AIML-500: Machine Learning Fundamentals — Computer Vision & Multimodal AI module.</li>
       </ul>
     </div>
   </div>
