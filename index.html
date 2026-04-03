@@ -88,7 +88,36 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
 .ad-ref-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.3rem;}
 .ad-ref-list li{font-size:11px;color:var(--gray);line-height:1.5;padding-left:1rem;position:relative;}
 .ad-ref-list li::before{content:'·';position:absolute;left:0;color:var(--green);font-weight:700;}
-@media(max-width:768px){
+/* AI TIMELINE */
+.tl-wrap{padding:3rem 3rem;max-width:1100px;margin:0 auto;}
+.tl-tabs{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap;}
+.tl-tab{padding:7px 18px;font-size:13px;font-weight:500;border:0.5px solid var(--border);border-radius:20px;background:transparent;color:var(--gray);cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
+.tl-tab.active{background:var(--black);color:var(--white);border-color:var(--black);}
+.tl-panel{display:none;} .tl-panel.active{display:block;}
+.era-filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem;}
+.era-btn{padding:4px 12px;font-size:12px;border:0.5px solid var(--border);border-radius:20px;background:transparent;color:var(--gray);cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
+.era-btn.active{background:var(--gray-light);color:var(--black);border-color:var(--border);}
+.tl-item{display:flex;gap:14px;padding:10px 8px;border-bottom:0.5px solid var(--border);cursor:pointer;border-radius:8px;transition:background .15s;}
+.tl-item:hover{background:var(--green-light);}
+.tl-item:last-child{border-bottom:none;}
+.tl-dot{width:13px;height:13px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+.tl-year{font-size:12px;font-weight:500;color:var(--gray);min-width:34px;padding-top:2px;}
+.tl-title{font-size:13px;font-weight:500;color:var(--black);margin-bottom:2px;}
+.tl-desc{font-size:12px;color:var(--gray);line-height:1.5;}
+.field-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;}
+.field-card{padding:14px 16px;border:0.5px solid var(--border);border-radius:12px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;}
+.field-card:hover{background:var(--green-light);border-color:var(--green);}
+.field-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;}
+.fc-purple::before{background:#7F77DD;} .fc-teal::before{background:#1D9E75;}
+.fc-blue::before{background:#378ADD;}   .fc-amber::before{background:#BA7517;}
+.fc-coral::before{background:#D85A30;}  .fc-green::before{background:#639922;}
+.fc-pink::before{background:#D4537E;}   .fc-gray::before{background:#888780;}
+.field-title{font-size:13px;font-weight:500;color:var(--black);margin-bottom:4px;}
+.field-desc{font-size:12px;color:var(--gray);line-height:1.5;margin-bottom:5px;}
+.field-ex{font-size:11px;color:#999;font-style:italic;}
+@keyframes tlFadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.tl-animate{animation:tlFadeIn .2s ease forwards;}
+
   nav{padding:1rem 1.5rem;}
   .nav-links{gap:1rem;font-size:12px;}
   .hero,.artifact-section,section,.audience-wrap{padding-left:1.5rem;padding-right:1.5rem;}
@@ -106,6 +135,7 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#audience">Audience</a>
+    <a href="#aitimeline">AI Timeline</a>
     <a href="#artifact1">Artifact 1</a>
     <a href="#artifact2">Artifact 2</a>
     <a href="#artifact3">Artifact 3</a>
@@ -183,6 +213,125 @@ section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
     </div>
   </div>
 </div>
+
+<div class="full-divider-wide"></div>
+
+<!-- AI TIMELINE -->
+<div id="aitimeline" style="background:#f6faf8;scroll-margin-top:60px;">
+  <div class="tl-wrap">
+    <div class="section-label">Residency Artifact — AI/ML Fundamentals</div>
+    <h2 class="section-title">AI Timeline & Taxonomy</h2>
+    <p style="font-size:0.95rem;color:var(--gray);max-width:720px;font-weight:300;line-height:1.8;margin-bottom:1.5rem;">An interactive exploration of the history of Artificial Intelligence and its major subfields — developed during the AIML-500 residency as a foundational knowledge artifact.</p>
+    <div class="tl-tabs">
+      <button class="tl-tab active" onclick="tlShowTab('timeline',this)">Historical Timeline</button>
+      <button class="tl-tab" onclick="tlShowTab('fields',this)">AI Subfields</button>
+    </div>
+
+    <!-- TIMELINE -->
+    <div id="tl-panel-timeline" class="tl-panel active">
+      <div class="era-filters" id="era-filters">
+        <button class="era-btn active" onclick="tlFilter('all',this)">All</button>
+        <button class="era-btn" onclick="tlFilter('foundation',this)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#7F77DD;margin-right:4px;vertical-align:middle"></span>Foundations</button>
+        <button class="era-btn" onclick="tlFilter('deep',this)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#1D9E75;margin-right:4px;vertical-align:middle"></span>Deep Learning</button>
+        <button class="era-btn" onclick="tlFilter('transformer',this)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#BA7517;margin-right:4px;vertical-align:middle"></span>Transformer Era</button>
+        <button class="era-btn" onclick="tlFilter('llm',this)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#D85A30;margin-right:4px;vertical-align:middle"></span>LLM Boom</button>
+        <button class="era-btn" onclick="tlFilter('current',this)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#378ADD;margin-right:4px;vertical-align:middle"></span>Current Era</button>
+      </div>
+      <div id="tl-list"></div>
+    </div>
+
+    <!-- FIELDS -->
+    <div id="tl-panel-fields" class="tl-panel">
+      <div id="tl-field-grid" class="field-grid"></div>
+    </div>
+
+    <!-- References -->
+    <div class="ad-references" style="margin-top:2rem;">
+      <div class="ad-ref-title">References</div>
+      <ul class="ad-ref-list">
+        <li>Russell, S., & Norvig, P. (2020). <em>Artificial Intelligence: A Modern Approach</em> (4th ed.). Pearson.</li>
+        <li>LeCun, Y., Bengio, Y., & Hinton, G. (2015). Deep learning. <em>Nature, 521</em>, 436–444.</li>
+        <li>Vaswani, A., et al. (2017). Attention is all you need. <em>NeurIPS 2017.</em> arXiv:1706.03762</li>
+        <li>Indiana Wesleyan University. (2024). AIML-500: Machine Learning Fundamentals — Residency AI & ML Timelines module.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+const tlEvents = [
+  {year:1936,era:'foundation',color:'#7F77DD',title:'Turing — theoretical computing machine',desc:'Foundation of computation and algorithmic thinking'},
+  {year:1950,era:'foundation',color:'#7F77DD',title:'Turing Test — "Can a machine think?"',desc:'Computing Machinery and Intelligence paper'},
+  {year:1956,era:'foundation',color:'#7F77DD',title:'Dartmouth Conference — AI is born',desc:'McCarthy coins the term "Artificial Intelligence"'},
+  {year:1969,era:'foundation',color:'#888780',title:'First AI winter begins',desc:'Minsky & Papert expose perceptron limits; funding collapses'},
+  {year:1986,era:'deep',color:'#1D9E75',title:'Hinton — Backpropagation',desc:'Rumelhart, Hinton & Williams: neural nets can learn'},
+  {year:1997,era:'deep',color:'#1D9E75',title:'Deep Blue defeats Kasparov',desc:"IBM's chess engine beats the world champion"},
+  {year:2006,era:'deep',color:'#1D9E75',title:'Hinton — Deep Belief Networks',desc:'Launches the deep learning renaissance'},
+  {year:2012,era:'deep',color:'#1D9E75',title:'AlexNet — ImageNet breakthrough',desc:"Hinton's team cuts image error rate in half with deep CNNs"},
+  {year:2017,era:'transformer',color:'#BA7517',title:'"Attention Is All You Need" — Transformer',desc:'Vaswani et al. (Google Brain) — self-attention replaces RNNs'},
+  {year:2018,era:'transformer',color:'#BA7517',title:'Google BERT — language understanding',desc:'Pre-trained models reshape NLP benchmarks'},
+  {year:2020,era:'llm',color:'#D85A30',title:'GPT-3 — OpenAI (175B parameters)',desc:'First LLM to demonstrate emergent few-shot reasoning'},
+  {year:2022,era:'llm',color:'#D85A30',title:'ChatGPT — 100M users in 2 months',desc:'Fastest product adoption in history; AI enters mass culture'},
+  {year:2023,era:'llm',color:'#D85A30',title:'GPT-4, Claude, Gemini — multimodal race',desc:'Anthropic, OpenAI, Google compete; image + text models emerge'},
+  {year:2025,era:'current',color:'#378ADD',title:'Reasoning models — o1, DeepSeek, Gemini 2',desc:'AI reasons step-by-step; open-source challenges frontier labs'},
+  {year:2026,era:'current',color:'#185FA5',title:'AI as global infrastructure',desc:'Anthropic, Meta, xAI, Nvidia shape a $1T+ industry; every user interaction co-authors AI in real time'},
+];
+const tlFields = [
+  {c:'fc-purple',t:'IA — Inteligencia Artificial',d:'Sistema que simula inteligencia humana para razonar, aprender y tomar decisiones.',e:'Siri / Alexa · Deep Blue (IBM)'},
+  {c:'fc-teal',  t:'Machine Learning (ML)',d:'Máquinas aprenden de datos y mejoran sin ser programadas explícitamente.',e:'Detección de spam · Fraude bancario'},
+  {c:'fc-blue',  t:'Supervised Learning',d:'Aprende de datos etiquetados — cada dato tiene respuesta correcta.',e:'Spam / No spam · Diagnóstico médico'},
+  {c:'fc-teal',  t:'Unsupervised Learning',d:'Encuentra patrones en datos sin etiquetas por sí solo.',e:'Segmentación clientes · Detección anomalías'},
+  {c:'fc-amber', t:'Reinforcement Learning',d:'Aprende por prueba, error y recompensa en entorno dinámico.',e:'AlphaGo · Vehículos autónomos'},
+  {c:'fc-green', t:'Deep Learning (DL)',d:'Subcampo de ML con redes neuronales multicapa para datos complejos.',e:'Imágenes médicas · Traducción automática'},
+  {c:'fc-gray',  t:'Neural Networks',d:'Inspirado en el cerebro humano — nodos interconectados en capas.',e:'Reconocimiento de voz · Texto predictivo'},
+  {c:'fc-pink',  t:'NLP — Natural Language Processing',d:'Permite comprender, interpretar y generar lenguaje humano.',e:'ChatGPT / Claude · Google Translate'},
+  {c:'fc-coral', t:'Computer Vision',d:'Interpreta y analiza imágenes y videos usando redes CNN.',e:'Reconocimiento facial · Detección tumores'},
+  {c:'fc-amber', t:'Robotics',d:'IA en cuerpos físicos. Combina CV + RL + NLP para actuar.',e:'Robots quirúrgicos · Drones autónomos'},
+  {c:'fc-blue',  t:'Expert Systems',d:'Replica decisiones de expertos con reglas predefinidas.',e:'Diagnóstico asistido · Compliance financiero'},
+  {c:'fc-purple',t:'Generative AI',d:'Crea contenido nuevo — texto, imágenes, código — con GANs y Transformers.',e:'DALL-E / Midjourney · GitHub Copilot'},
+];
+let tlCurrentEra='all';
+function tlRender(){
+  const list=document.getElementById('tl-list');
+  const filtered=tlCurrentEra==='all'?tlEvents:tlEvents.filter(e=>e.era===tlCurrentEra);
+  list.innerHTML=filtered.map(e=>`
+    <div class="tl-item tl-animate">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:3px">
+        <div class="tl-dot" style="background:${e.color}"></div>
+        <div style="width:1px;flex:1;background:var(--border);min-height:10px"></div>
+      </div>
+      <div style="padding:0 0 10px;flex:1">
+        <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:2px">
+          <span class="tl-year">${e.year}</span>
+          <span class="tl-title">${e.title}</span>
+        </div>
+        <div class="tl-desc">${e.desc}</div>
+      </div>
+    </div>`).join('');
+}
+function tlRenderFields(){
+  document.getElementById('tl-field-grid').innerHTML=tlFields.map(f=>`
+    <div class="field-card ${f.c} tl-animate">
+      <div class="field-title">${f.t}</div>
+      <div class="field-desc">${f.d}</div>
+      <div class="field-ex">${f.e}</div>
+    </div>`).join('');
+}
+function tlShowTab(tab,btn){
+  document.querySelectorAll('.tl-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tl-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tl-panel-'+tab).classList.add('active');
+}
+function tlFilter(era,btn){
+  tlCurrentEra=era;
+  document.querySelectorAll('#era-filters .era-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  tlRender();
+}
+tlRender();
+tlRenderFields();
+</script>
 
 <div class="full-divider-wide"></div>
 
