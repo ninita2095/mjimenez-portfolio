@@ -60,9 +60,23 @@ section{padding:3rem 3rem;max-width:1100px;margin:0 auto;}
 .audience-relevance ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.4rem;}
 .audience-relevance li{font-size:12px;color:#1a5c44;display:flex;gap:8px;line-height:1.5;}
 .audience-relevance li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
+/* ACCORDION */
+.acc-toggle{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-size:11px;font-weight:500;color:var(--gray);background:none;border:0.5px solid var(--border);border-radius:20px;padding:5px 12px;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;width:100%;}
+.acc-toggle:hover{border-color:var(--green);color:var(--green);background:var(--green-light);}
+.acc-toggle .acc-arr{display:inline-block;transition:transform .25s;}
+.acc-toggle.open .acc-arr{transform:rotate(90deg);}
+.acc-body{display:none;margin-bottom:1.25rem;padding:1.25rem 1.5rem;border:0.5px solid var(--border);border-radius:12px;background:var(--white);}
+.acc-body.open{display:block;}
+.acc-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.acc-section{padding-bottom:0.9rem;border-bottom:0.5px solid var(--border);}
+.acc-section:nth-last-child(-n+2){border-bottom:none;padding-bottom:0;}
+.acc-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-bottom:0.3rem;}
+.acc-text{font-size:12px;color:var(--gray);line-height:1.65;font-weight:300;}
+.acc-text strong{color:var(--black);font-weight:500;}
 /* ARTIFACTS */
+.ad-left{display:flex;flex-direction:column;gap:0.75rem;}
 .artifact-section{padding:3rem 3rem;max-width:1100px;margin:0 auto;}
-.ad-top{display:grid;grid-template-columns:360px 1fr;gap:2.5rem;align-items:start;margin-bottom:1.5rem;}
+.ad-top{display:grid;grid-template-columns:360px 1fr;gap:2.5rem;align-items:start;margin-bottom:0;}
 .ad-img-wrap{border-radius:12px;overflow:hidden;aspect-ratio:16/10;max-height:210px;}
 .ad-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
 .ad-img-wrap-gradient{border-radius:12px;overflow:hidden;aspect-ratio:16/10;max-height:210px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;}
@@ -339,16 +353,27 @@ tlRenderFields();
 <!-- ARTIFACT 1 -->
 <div id="artifact1" style="background:#f6faf8;scroll-margin-top:60px;">
   <div class="artifact-section">
-    <div class="section-label">Artifact 01 — Conversational AI</div>
     <div class="ad-top">
-      <div class="ad-img-wrap">
-        <img src="recyclebot-screenshot.png" alt="RecycleBot SF" />
+      <div class="ad-left">
+        <div class="ad-img-wrap"><img src="recyclebot-screenshot.png" alt="RecycleBot SF" /></div>
+        <button class="acc-toggle" onclick="this.classList.toggle('open');document.getElementById('acc1').classList.toggle('open')"><span class="acc-arr">›</span> Artifact Details</button>
       </div>
       <div class="ad-info">
+        <div class="section-label">Artifact 01 — Conversational AI</div>
         <h2>RecycleBot SF</h2>
         <p>An AI-powered chatbot trained on SFPUC recycling guidelines. Helps SF residents instantly know where any item goes — compost, recycling, or landfill — through natural conversation.</p>
         <div class="ad-tags"><span class="tag">Conversational AI</span><span class="tag">Chatbase</span><span class="tag">RAG</span><span class="tag">Public Service</span></div>
         <a href="https://www.chatbase.co/chatbot-iframe/EnSgRRuPsZZ4VaUQlPGrj" target="_blank" class="ad-link">Try RecycleBot SF →</a>
+      </div>
+    </div>
+    <div class="acc-body" id="acc1">
+      <div class="acc-grid">
+        <div class="acc-section"><div class="acc-label">Introduction</div><div class="acc-text">RecycleBot SF is a conversational AI assistant that helps San Francisco residents identify the correct disposal bin for any household item — built on official Recology guidelines using RAG architecture and deployed as a public embeddable widget.</div></div>
+        <div class="acc-section"><div class="acc-label">Objective</div><div class="acc-text">Apply conversational AI and RAG to solve a real civic problem: eliminating recycling confusion for SF residents through a fast, accurate, bilingual chatbot.</div></div>
+        <div class="acc-section"><div class="acc-label">Process</div><div class="acc-text">Designed using the 5-stage Design Thinking methodology. System prompt engineered using the <strong>Context + Task + Constraints</strong> framework. Tested with 8 items in EN/ES — 100% accuracy. 4-category response structure: Green, Blue, Black, and Special Disposal.</div></div>
+        <div class="acc-section"><div class="acc-label">Tools & Tech</div><div class="acc-text">Chatbase · RAG · Recology SF official guidelines · Prompt engineering (Context + Task + Constraints) · Bilingual NLP</div></div>
+        <div class="acc-section"><div class="acc-label">Unique Value</div><div class="acc-text">A four-category system — including <strong>Special Disposal</strong> for hazardous items — that goes beyond the standard 3-bin structure, providing accurate guidance where generic bots fail.</div></div>
+        <div class="acc-section"><div class="acc-label">Relevance</div><div class="acc-text">Demonstrates RAG, prompt engineering, and iterative design — core AIML-500 competencies — through a deployed, bilingual, publicly accessible civic tool.</div></div>
       </div>
     </div>
     <div class="ad-bottom">
@@ -376,7 +401,7 @@ tlRenderFields();
     <div class="ad-references">
       <div class="ad-ref-title">References</div>
       <ul class="ad-ref-list">
-        <li>San Francisco Public Utilities Commission. (2024). <em>Recycling & Composting Guidelines.</em> SFPUC. sfpuc.org</li>
+        <li>San Francisco Public Utilities Commission. (2024). <em>Recycling & Composting Guidelines.</em> sfpuc.org</li>
         <li>Lewis, P., et al. (2020). Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. <em>NeurIPS 2020.</em> arXiv:2005.11401</li>
         <li>Chatbase. (2024). <em>RAG-powered chatbot platform documentation.</em> chatbase.co</li>
         <li>Indiana Wesleyan University. (2024). AIML-500: Machine Learning Fundamentals — Residency AI & ML Timelines module.</li>
@@ -390,16 +415,27 @@ tlRenderFields();
 <!-- ARTIFACT 2 -->
 <div id="artifact2" style="background:var(--white);scroll-margin-top:60px;">
   <div class="artifact-section">
-    <div class="section-label">Artifact 02 — Real-time Data Intelligence</div>
     <div class="ad-top">
-      <div class="ad-img-wrap">
-        <img src="ccs-screenshot.png" alt="Clean, Clear & Safe" />
+      <div class="ad-left">
+        <div class="ad-img-wrap"><img src="ccs-screenshot.png" alt="Clean, Clear & Safe" /></div>
+        <button class="acc-toggle" onclick="this.classList.toggle('open');document.getElementById('acc2').classList.toggle('open')"><span class="acc-arr">›</span> Artifact Details</button>
       </div>
       <div class="ad-info">
+        <div class="section-label">Artifact 02 — Real-time Data Intelligence</div>
         <h2>Clean, Clear & Safe</h2>
         <p>AI-powered product analyzer that identifies toxic compounds in consumer products and recommends 6 cleaner alternatives with real-time Amazon pricing and availability.</p>
         <div class="ad-tags"><span class="tag">Claude API</span><span class="tag">Amazon Data API</span><span class="tag">Vercel</span><span class="tag">Real-time Data</span></div>
         <a href="https://ccs-personal-shopper.vercel.app" target="_blank" class="ad-link">Try Personal Shopper →</a>
+      </div>
+    </div>
+    <div class="acc-body" id="acc2">
+      <div class="acc-grid">
+        <div class="acc-section"><div class="acc-label">Introduction</div><div class="acc-text">Clean, Clear & Safe Personal Shopper is an AI tool that analyzes consumer products, identifies compounds of concern using scientific criteria (EWG, FDA, PubChem), assigns a CCS score from 0–100, and recommends 6 cleaner alternatives with real prices and images pulled live from Amazon.</div></div>
+        <div class="acc-section"><div class="acc-label">Objective</div><div class="acc-text">Demonstrate that AI can connect to the real world in real time — going beyond static Q&A to return actionable results by integrating live external APIs with LLM reasoning.</div></div>
+        <div class="acc-section"><div class="acc-label">Process</div><div class="acc-text">Iterated through 9+ versions. Compound scoring built on EWG, FDA, and PubChem criteria. Claude API generates structured JSON output. Amazon Data API retrieves live pricing and images. Deployed serverlessly on Vercel. Each iteration responded to specific interface and UX feedback.</div></div>
+        <div class="acc-section"><div class="acc-label">Tools & Tech</div><div class="acc-text">Claude API · Amazon Data API · Vercel Serverless Functions · Node.js · JSON structured output · EWG / FDA / PubChem scientific criteria</div></div>
+        <div class="acc-section"><div class="acc-label">Unique Value</div><div class="acc-text">Unlike static product databases, CCS combines <strong>real-time Amazon pricing</strong> with <strong>AI-driven toxicity scoring</strong> — turning ingredient analysis into actionable purchasing decisions.</div></div>
+        <div class="acc-section"><div class="acc-label">Relevance</div><div class="acc-text">Demonstrates structured inference, API orchestration, and real-time data integration — core AIML-500 competencies — through a production-deployed consumer tool with visible technical depth.</div></div>
       </div>
     </div>
     <div class="ad-bottom">
@@ -441,17 +477,30 @@ tlRenderFields();
 <!-- ARTIFACT 3 -->
 <div id="artifact3" style="background:#faf8f4;scroll-margin-top:60px;">
   <div class="artifact-section">
-    <div class="section-label">Artifact 03 — Multi-Persona AI Coaching</div>
     <div class="ad-top">
-      <div class="ad-img-wrap-gradient" style="background:linear-gradient(135deg,#1a1612,#3d2f1a,#5c4423);">
-        <div style="font-size:3.5rem;">🔮</div>
-        <div style="font-family:'DM Serif Display',serif;font-size:1rem;color:rgba(255,220,160,0.9);">The Oracle of Leaders</div>
+      <div class="ad-left">
+        <div class="ad-img-wrap-gradient" style="background:linear-gradient(135deg,#1a1612,#3d2f1a,#5c4423);">
+          <div style="font-size:3.5rem;">🔮</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:1rem;color:rgba(255,220,160,0.9);">The Oracle of Leaders</div>
+        </div>
+        <button class="acc-toggle" onclick="this.classList.toggle('open');document.getElementById('acc3').classList.toggle('open')"><span class="acc-arr">›</span> Artifact Details</button>
       </div>
       <div class="ad-info">
+        <div class="section-label">Artifact 03 — Multi-Persona AI Coaching</div>
         <h2>The Oracle of Leaders</h2>
         <p>AI leadership coaching tool that delivers three expert perspectives simultaneously — philosopher, psychologist, iconic leader — plus a real-world case and weekly action plan. Fully bilingual (EN/ES).</p>
         <div class="ad-tags"><span class="tag">Claude API</span><span class="tag">Prompt Engineering</span><span class="tag">Vercel</span><span class="tag">Bilingual</span></div>
         <a href="https://oracle-of-leaders.vercel.app" target="_blank" class="ad-link">Try The Oracle →</a>
+      </div>
+    </div>
+    <div class="acc-body" id="acc3">
+      <div class="acc-grid">
+        <div class="acc-section"><div class="acc-label">Introduction</div><div class="acc-text">The Oracle of Leaders is an AI coaching tool where the user describes a leadership challenge and receives simultaneous perspectives from a philosopher, a psychologist, and an iconic leader — plus a real-world case and a concrete weekly action plan. Fully bilingual (EN/ES).</div></div>
+        <div class="acc-section"><div class="acc-label">Objective</div><div class="acc-text">Apply NLP and multi-persona prompt engineering to human and organizational development — demonstrating that ML can deliver expert-level guidance accessible to any leader, without a coach or consultant.</div></div>
+        <div class="acc-section"><div class="acc-label">Process</div><div class="acc-text">Started from a concrete frustration: leaders find only generic articles. Two versions failed due to CORS restrictions, forcing a complete architectural redesign. Final version uses structured JSON prompting to generate consistent, persona-specific responses in real time. Bilingual by design — language auto-detected from user input.</div></div>
+        <div class="acc-section"><div class="acc-label">Tools & Tech</div><div class="acc-text">HTML5 · CSS3 · JavaScript · Claude API · Prompt Engineering with JSON schemas · Responsive UI · Vercel deployment · Iterative prototyping</div></div>
+        <div class="acc-section"><div class="acc-label">Unique Value</div><div class="acc-text">Turns LLMs into <strong>tangible expert guidance</strong> — three simultaneous frameworks, a real case, and a concrete weekly action — accessible to any leader in English or Spanish, with no visible complexity on screen.</div></div>
+        <div class="acc-section"><div class="acc-label">Relevance</div><div class="acc-text">Demonstrates multi-persona prompt engineering, JSON structured output, and real deployment problem-solving — showing that AI/ML mastery includes both model design and production engineering.</div></div>
       </div>
     </div>
     <div class="ad-bottom">
@@ -493,12 +542,15 @@ tlRenderFields();
 <!-- ARTIFACT 4 -->
 <div id="artifact4" style="background:#f0f4ff;scroll-margin-top:60px;">
   <div class="artifact-section">
-    <div class="section-label">Artifact 04 — Computer Vision & ML Pipeline</div>
     <div class="ad-top">
-      <div class="ad-img-wrap" style="background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);">
-        <img src="snapsift-screenshot.png" alt="SnapSift AI" style="width:100%;height:100%;object-fit:cover;opacity:0.9;" />
+      <div class="ad-left">
+        <div class="ad-img-wrap" style="background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);">
+          <img src="snapsift-screenshot.png" alt="SnapSift AI" style="width:100%;height:100%;object-fit:cover;opacity:0.9;" />
+        </div>
+        <button class="acc-toggle" onclick="this.classList.toggle('open');document.getElementById('acc4').classList.toggle('open')"><span class="acc-arr">›</span> Artifact Details</button>
       </div>
       <div class="ad-info">
+        <div class="section-label">Artifact 04 — Computer Vision & ML Pipeline</div>
         <h2>SnapSift AI</h2>
         <p style="font-style:italic;color:rgba(0,0,0,0.5);font-size:0.85rem;margin-bottom:2px;">Intelligent Photo Organizer</p>
         <p>AI-powered desktop app that filters, deduplicates, and organizes photos from any ZIP file using computer vision — 100% local, Privacy by Design.</p>
@@ -507,6 +559,16 @@ tlRenderFields();
           <a href="https://github.com/ninita2095/mjimenez-portfolio/releases/download/v1.0/SnapSift-AI-Mac.zip" style="background:#1a1a2e;color:white;padding:7px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.8rem;">⬇ Download for Mac</a>
           <a href="https://github.com/ninita2095/mjimenez-portfolio/releases/download/v1.0/SnapSift-AI-Windows.zip" style="background:#16213e;color:white;padding:7px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.8rem;">⬇ Download for Windows</a>
         </div>
+      </div>
+    </div>
+    <div class="acc-body" id="acc4">
+      <div class="acc-grid">
+        <div class="acc-section"><div class="acc-label">Introduction</div><div class="acc-text">SnapSift AI is a locally-executed, privacy-first photo organization tool that uses AI to automatically filter, deduplicate, and organize photos from any ZIP file — combining computer vision, perceptual hashing, and natural language generation into a single end-to-end ML pipeline, without uploading any personal data to external servers.</div></div>
+        <div class="acc-section"><div class="acc-label">Objective</div><div class="acc-text">Solve a real-world scale problem: WhatsApp datasets of 5,100+ mixed-content images where only a fraction qualifies as genuine personal photography — making manual classification impractical and demonstrating a full ML pipeline from ingestion to summarization.</div></div>
+        <div class="acc-section"><div class="acc-label">Process</div><div class="acc-text">3 documented prompt engineering iterations refined classification accuracy. Model substitution from claude-opus to claude-haiku reduced cost by 95% (from ~$39 to under $2.50 for 5,100 images) while maintaining quality. Checkpoint system implemented for resilience. Validated on a 49-photo controlled set: 43% kept, 55% discarded, 2% flagged for review.</div></div>
+        <div class="acc-section"><div class="acc-label">Tools & Tech</div><div class="acc-text">Python · Claude Vision API · Perceptual hashing · Natural language generation · Desktop packaging (Mac & Windows) · Privacy by Design architecture</div></div>
+        <div class="acc-section"><div class="acc-label">Unique Value</div><div class="acc-text">The only AI photo organizer that runs <strong>100% locally</strong> — no cloud upload, no data retention. Cultural classification bias was identified, documented, and mitigated through iterative prompt engineering, reflecting responsible AI development.</div></div>
+        <div class="acc-section"><div class="acc-label">Relevance</div><div class="acc-text">Demonstrates computer vision, supervised classification, similarity detection, LLM summarization, and model iteration — the most complete ML pipeline in this portfolio — delivered as a production desktop application.</div></div>
       </div>
     </div>
     <div class="ad-bottom">
